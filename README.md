@@ -12,3 +12,4 @@ Make sure you have the gatsby cli installed
 * Contentful CMS 
     * Requires you to enter workspace id and keys
     * Don't forget to create your .env. files to store the keys (default `CONTENTFUL_ACCESS_TOKEN`)
+* Alias imports (allows you to do "@components" instead of "../src/components" etc)

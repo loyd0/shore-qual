@@ -74,6 +74,19 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@src": "src",
+          "@components": "src/components",
+          "@elements": "src/components/Elements",
+        },
+        extensions: [
+          "js",
+        ],
+      }
+    },
     // Add fonts here
     // {
     //   resolve: `gatsby-plugin-google-fonts`,

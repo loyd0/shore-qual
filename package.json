@@ -27,7 +27,7 @@
   "devDependencies": {
     "cssnano": "^4.1.10",
     "prettier": "^1.19.1",
-    "tailwindcss": "^1.1.4"
+    "tailwindcss": "^1.2.0"
   },
   "keywords": [
     "gatsby"

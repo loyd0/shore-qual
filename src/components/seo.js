@@ -1,16 +1,10 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+// import logo from "../images/site/seo-logo.svg"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, image, article, twitterUsername }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +13,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -26,6 +21,8 @@ function SEO({ description, lang, meta, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const metaImage = image ? `${site.siteMetadata.siteUrl}${image}` : "" // placeholder logo here
+  const metaTitle = title ? `${title}| ${site.siteMetadata.title}` : site.siteMetadata.title
 
   return (
     <Helmet
@@ -34,41 +31,32 @@ function SEO({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
+    >
+      <noscript>Your browser does not support JavaScript! A London List works best with javascript ( and by best only ). </noscript>     
+
+     <meta name="description" content={metaDescription} />
+      <meta name="image" content={metaImage} />
+
+      {/* Facebook */}
+      <meta property="og:url" content={site.siteMetadata.siteUrl} />
+      <meta property="og:type" content={article ? `article` : `website`} />
+      <meta property="og:title" content={metaTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={metaImage} />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={site.siteMetadata.siteUrl} />
+      <meta name="twitter:title" content={metaTitle} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={metaImage} />
+
+      {twitterUsername && (
+        <meta name="twitter:creator" content={twitterUsername} />
+      )}
+
+      <meta charSet="UTF-8" />
+    </Helmet>
   )
 }
 

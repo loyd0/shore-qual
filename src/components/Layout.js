@@ -1,8 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import Header from "./Header"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -14,6 +15,12 @@ const Layout = ({ children }) => {
       }
     }
   `)
+
+  
+// Initialise the Animations for fade up and in
+useEffect(() => {
+  AOS.init();
+}, [])
 
   return (
     <>

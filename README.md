@@ -14,3 +14,6 @@ Make sure you have the gatsby cli installed
     * Don't forget to create your .env. files to store the keys (default `CONTENTFUL_ACCESS_TOKEN`)
     * If you have tonnes of errors when you run, you need to have content in contentful in order for the blocks/components not to freak out
 * Alias imports (allows you to do "@components" instead of "../src/components" etc)
+* Added AOS for animations on scroll 
+    * <div data-aos="fade-up"  data-aos-duration="1000" >
+    * See https://michalsnik.github.io/aos/ for more

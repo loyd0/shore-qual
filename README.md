@@ -17,3 +17,4 @@ Make sure you have the gatsby cli installed
 * Added AOS for animations on scroll 
     * <div data-aos="fade-up"  data-aos-duration="1000" >
     * See https://michalsnik.github.io/aos/ for more
+* External / Internal Link resolver component

@@ -20,3 +20,5 @@ Make sure you have the gatsby cli installed
 * External / Internal Link resolver component
 * Added Anchor Links package for gatsby that allows easy scroll to page section
 * Addded React Cookies Package - see `https://www.npmjs.com/package/react-cookie-consent` for details
+* Added netlify Toml to allow plugins and redirects 
+    * All content is commented out, so uncomment to begin

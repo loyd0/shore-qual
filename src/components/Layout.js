@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Header from "./Header"
+import CookieConsent from "react-cookie-consent";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -39,7 +40,14 @@ useEffect(() => {
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
+
       </div>
+      <CookieConsent
+        acceptOnScroll={true}
+        acceptOnScrollPercentage={15}
+      >
+        This website uses cookies to anonymously enhance the user experience.
+      </CookieConsent>
     </>
   )
 }

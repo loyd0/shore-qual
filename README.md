@@ -16,5 +16,7 @@ Make sure you have the gatsby cli installed
 * Alias imports (allows you to do "@components" instead of "../src/components" etc)
 * Added AOS for animations on scroll 
     * <div data-aos="fade-up"  data-aos-duration="1000" >
-    * See https://michalsnik.github.io/aos/ for more
+    * See `https://michalsnik.github.io/aos/` for more
 * External / Internal Link resolver component
+* Added Anchor Links package for gatsby that allows easy scroll to page section
+* Addded React Cookies Package - see `https://www.npmjs.com/package/react-cookie-consent` for details

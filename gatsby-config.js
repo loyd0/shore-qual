@@ -44,6 +44,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: "gatsby-plugin-anchor-links",
+      // If you want to add options
+      // options: { 
+      //   offset: -50
+      // }
+    },
+    {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [

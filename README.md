@@ -22,3 +22,14 @@ Make sure you have the gatsby cli installed
 * Addded React Cookies Package - see `https://www.npmjs.com/package/react-cookie-consent` for details
 * Added netlify Toml to allow plugins and redirects 
     * All content is commented out, so uncomment to begin
+* Added starter examples of MarkDown and Rich Text Components
+* Added Dynamic Forms as examples 
+* Added new utils 
+    * UTM Extractors
+    * Email Validator
+    * Object > Array
+    * URL Encoder
+* Added hooks 
+    * useBodyLock - locks scrolling on body (when full screen menus are open for example)
+    * useClipboard - automatically add to a clipboard
+    * useMarkDown - use markdown text returns mark down from input strings

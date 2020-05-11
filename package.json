@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Sam Loyd",
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@contentful/rich-text-types": "^14.1.0",
     "aos": "^2.3.4",
     "dotenv": "^8.2.0",
     "gatsby": "^2.18.12",
@@ -24,11 +26,14 @@
     "gatsby-source-contentful": "^2.1.75",
     "gatsby-source-filesystem": "^2.1.40",
     "gatsby-transformer-sharp": "^2.3.7",
+    "highlight.js": "^10.0.2",
+    "markdown-to-jsx": "^6.11.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-cookie-consent": "^3.0.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "underscore": "^1.10.2"
   },
   "devDependencies": {
     "@tailwindcss/ui": "^0.1.3",

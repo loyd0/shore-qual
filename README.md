@@ -23,6 +23,7 @@ Make sure you have the gatsby cli installed
 * Added netlify Toml to allow plugins and redirects 
     * All content is commented out, so uncomment to begin
 * Added starter examples of MarkDown and Rich Text Components
+    * Added the required packages (markdown-to-jsx and contentful-richtext)
 * Added Dynamic Forms as examples 
 * Added new utils 
     * UTM Extractors

@@ -18,7 +18,7 @@ require("dotenv").config({
 // Handles removing the robot crawlers from Netlify preview domains and improves SEO
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://alondonlist.com',
+  URL: NETLIFY_SITE_URL = 'your-url.com',
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
   CONTEXT: NETLIFY_ENV = NODE_ENV
 } = process.env;
@@ -106,8 +106,6 @@ module.exports = {
     // }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-    // `gatsby-plugin-offline`,
     // `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,

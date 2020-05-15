@@ -30,7 +30,7 @@ module.exports = {
     title: `Gatsby and TailWind Starter`,
     description: `A basic starter with Tailwind and Font Awesome`,
     author: `Sam Loyd`,
-    siteUrl: ''
+    siteUrl
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -72,14 +72,16 @@ module.exports = {
         // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
       }
     },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: `your_space_id`,
-        // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
+
+    // Uncomment to add in contentful
+    // {
+    //   resolve: `gatsby-source-contentful`,
+    //   options: {
+    //     spaceId: `your_space_id`,
+    //     // Learn about environment variables: https://gatsby.dev/env-vars
+    //     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {

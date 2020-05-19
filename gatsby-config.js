@@ -18,7 +18,7 @@ require("dotenv").config({
 // Handles removing the robot crawlers from Netlify preview domains and improves SEO
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'your-url.com',
+  URL: NETLIFY_SITE_URL = 'https://your-valid-url.com',
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
   CONTEXT: NETLIFY_ENV = NODE_ENV
 } = process.env;
@@ -74,14 +74,14 @@ module.exports = {
     },
 
     // Uncomment to add in contentful
-    // {
-    //   resolve: `gatsby-source-contentful`,
-    //   options: {
-    //     spaceId: `your_space_id`,
-    //     // Learn about environment variables: https://gatsby.dev/env-vars
-    //     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `12f76xzf711z`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {

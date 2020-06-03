@@ -21,9 +21,11 @@ function SEO({ description, lang, meta, title, image, article, twitterUsername }
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const metaImage = image ? `${site.siteMetadata.siteUrl}${image}` : "" // placeholder logo here
-  const metaTitle = title ? `${title}| ${site.siteMetadata.title}` : site.siteMetadata.title
+  // const metaImage = `${site.siteMetadata.siteUrl}${image ? `${image}` : logo }` // placeholder logo here
+  const metaTitle = title ? `${title} | ${site.siteMetadata.title}` : site.siteMetadata.title
 
+
+  const metaImage = ""
   return (
     <Helmet
       htmlAttributes={{

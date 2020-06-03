@@ -1,14 +1,19 @@
 import React from "react"
-
-import Layout from "../components/Layout"
+import Layout from "../components/layout/Layout"
 import SEO from "../components/SEO"
+import Linked from '../components/elements/Linked';
 
 const NotFoundPage = () => (
+  <>
+  <SEO title="Oops nothing there" />
   <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <section id="404" className="flex flex-col text-center justify-center px-8 min-h-screen -mt-24" >
+      <h1>¯\_(ツ)_/¯</h1>
+    <h2 className="my-4">Oops appears that page doesn't exist.</h2>
+    <p>Why don't we head back <Linked linkTo="/">home</Linked> and start again...</p>
+    </section>
   </Layout>
+  </>
 )
 
 export default NotFoundPage

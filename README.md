@@ -34,3 +34,6 @@ Make sure you have the gatsby cli installed
     * useBodyLock - locks scrolling on body (when full screen menus are open for example)
     * useClipboard - automatically add to a clipboard
     * useMarkDown - use markdown text returns mark down from input strings
+* Forms ("react-hook-form")
+    * See the documentation here https://react-hook-form.com/get-started    
+    * See the example form component

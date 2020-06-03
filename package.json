@@ -9,7 +9,7 @@
     "@contentful/rich-text-types": "^14.1.0",
     "aos": "^2.3.4",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.18.12",
+    "gatsby": "^2.22.17",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-anchor-links": "^1.1.1",
@@ -29,10 +29,11 @@
     "highlight.js": "^10.0.2",
     "markdown-to-jsx": "^6.11.1",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
+    "react": "^16.13.1",
     "react-cookie-consent": "^3.0.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-hook-form": "^5.7.2",
     "underscore": "^1.10.2"
   },
   "devDependencies": {

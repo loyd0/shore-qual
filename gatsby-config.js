@@ -74,14 +74,14 @@ module.exports = {
     },
 
     // Uncomment to add in contentful
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: `12f76xzf711z`,
-        // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-contentful`,
+    //   options: {
+    //     spaceId: ``,
+    //     // Learn about environment variables: https://gatsby.dev/env-vars
+    //     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {

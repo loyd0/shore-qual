@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Linked from '../elements/Linked'
 import UseBodyLock from '../../hooks/useBodyLock';
-import { SocialIcons } from '../elements/SocialIcons';
+// import { SocialIcons } from '../elements/SocialIcons';
 
 
 const Nav = (props) => {
@@ -13,16 +13,17 @@ const Nav = (props) => {
 
     UseBodyLock(menuOpen)
 
-    const mobileLinks = social_links.filter(link => !link.linkTo.includes("mailto"))
+
 
     return (
         <>
             <nav className="hidden md:flex py-4 flex max-w-screen-lg mx-auto font-thin px-2" >
-                <NavLinks className="flex w-2/5 justify-around self-center" links={navigation_links.left} active={pathName} />
+                <NavLinks className="flex w-2/5 justify-around self-center"  active={pathName} />
                 <Linked linkTo="/" className="w-1/5">
-                    {/* {/* <img className="w-16 mx-auto" src={Logo} alt="San Loyd | Freelance Developer &amp; Designer | Logo" /> */} */}
+                    Logo
+                    {/* <img className="w-16 mx-auto" src={Logo} alt="San Loyd | Freelance Developer &amp; Designer | Logo" /> */}
                 </Linked>
-                <NavLinks className="flex w-2/5 justify-around self-center" links={navigation_links.right} active={pathName} />
+                <NavLinks className="flex w-2/5 justify-around self-center"  active={pathName} />
             </nav>
 
             <div className="md:hidden flex relative">
@@ -48,9 +49,9 @@ const Nav = (props) => {
                 style={{ height: '100vh', marginTop: menuOpen ? "0vh" : "-100vh", marginLeft: menuOpen ? "0vw" : "-100vw", borderRadius: "0px 0px 400px 0px" }}
 
             >
-                {/* {/* <img className="w-16 mt-6 mx-auto" src={Logo} alt="San Loyd | Freelance Developer &amp; Designer | Logo" /> */} */}
+                {/* <img className="w-16 mt-6 mx-auto" src={Logo} alt="San Loyd | Freelance Developer &amp; Designer | Logo" /> */}
                 <div className="flex-col flex">
-                    <NavLinks className="mx-auto space-y-6 mt-6" itemClassName="mx-auto text-2xl w-full" links={[...navigation_links.left, ...navigation_links.right]} active={pathName} />
+                    <NavLinks className="mx-auto space-y-6 mt-6" itemClassName="mx-auto text-2xl w-full" active={pathName} />
                 </div>
                 {/* <SocialIcons itemClassName="text-gray-500 hover:text-gray-800" className="flex space-x-8 mt-4 mx-auto justify-center text-2xl" icons={mobileLinks} /> */}
             </nav>
@@ -68,7 +69,7 @@ const Nav = (props) => {
 
 const NavLinks = ({ links, active, className, itemClassName }) => {
     return <ul className={className}>
-        {links.map(({ linkTo, page }) =>
+        {links && links.map(({ linkTo, page }) =>
             <li key={linkTo + page} className={`w-1/3 hover:font-normal ${active === linkTo ? "font-normal" : ""} text-center relative ${itemClassName}`}>
                 <Linked linkTo={linkTo} >{page}  <div className={`block mx-auto w-4/5 border-b-4 ${active === linkTo ? "border-highlight" : "border-transparent"} transform -rotate-3`}></div> </Linked>
             </li>)}

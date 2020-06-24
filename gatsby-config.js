@@ -33,7 +33,15 @@ module.exports = {
     siteUrl
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // trackingId: "UA-111111111-1", // add your own tracking code
+        // this option places the tracking script into the head of the DOM
+        head: true,
+        // other options
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,6 +49,8 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-fontawesome-css`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -95,17 +105,23 @@ module.exports = {
         ],
       }
     },
-    // Add fonts here
+    // Add fonts here (https://github.com/SirPole/google-fonts-plugin - for options)
+    // Will automatically swap them (package - https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/ )
     // {
-    //   resolve: `gatsby-plugin-google-fonts`,
+    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
     //   options: {
     //     fonts: [
-    //       `limelight`,
-    //       `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+    //       {
+    //         family: `Oswald`,
+    //         subsets: [`latin`],
+    //       },
+    //       {
+    //         family: `Open Sans`,
+    //         variants: [`400`, `700`]
+    //       },
     //     ],
-    //     display: 'swap'
-    //   }
-    // }
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

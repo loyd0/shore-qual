@@ -6,5 +6,4 @@
 
 // You can delete this file if you're not using it
 import "./src/css/global.css"
-import "./src/css/font-awesome/all.css"
 import "./src/css/custom.css"

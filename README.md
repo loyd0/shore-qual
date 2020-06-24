@@ -7,7 +7,7 @@ Make sure you have the gatsby cli installed
 # Features
 
 * Tailwind
-* Font-Awesome
+* Font-Awesome (now as package rather than CSS)
 * DotEnv (supports .env loading)
 * Contentful CMS 
     * Requires you to enter workspace id and keys

@@ -19,7 +19,7 @@ const Nav = (props) => {
         <>
             <nav className="hidden md:flex py-4 flex max-w-screen-lg mx-auto font-thin px-2" >
                 <NavLinks className="flex w-2/5 justify-around self-center"  active={pathName} />
-                <Linked linkTo="/" className="w-1/5">
+                <Linked linkTo="/" className="w-1/5 text-center">
                     Logo
                     {/* <img className="w-16 mx-auto" src={Logo} alt="San Loyd | Freelance Developer &amp; Designer | Logo" /> */}
                 </Linked>
@@ -33,7 +33,7 @@ const Nav = (props) => {
                 <i className="fa text-gray-900 fa-ellipsis-v"></i>
             </button>
             <Linked linkTo="/" className="md:hidden w-1/5 mx-auto mb-1 ">
-                    {/* {/* <img className="w-12 mx-auto" src={Logo} alt="San Loyd | Freelance Developer &amp; Designer | Logo" /> */} */}
+                    {/* <img className="w-12 mx-auto" src={Logo} alt="San Loyd | Freelance Developer &amp; Designer | Logo" /> */}
                 </Linked>
 
             </div>

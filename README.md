@@ -37,3 +37,4 @@ Make sure you have the gatsby cli installed
 * Forms ("react-hook-form")
     * See the documentation here https://react-hook-form.com/get-started    
     * See the example form component
+* Comes with mobile nav and animation already added

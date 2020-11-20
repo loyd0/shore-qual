@@ -71,27 +71,27 @@ module.exports = {
           })]
       }
     },
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true, // Print removed selectors and processed file names
-        develop: false, // Enable while using `gatsby develop`
-        tailwind: true, // Enable tailwindcss support
-        // whitelist: ['.article'], // Don't remove this selector
-        ignore: ['src/css/custom/'], // Ignore files/folders
-        // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
-      }
-    },
+    // {
+    //   resolve: `gatsby-plugin-purgecss`,
+    //   options: {
+    //     printRejected: true, // Print removed selectors and processed file names
+    //     develop: false, // Enable while using `gatsby develop`
+    //     tailwind: true, // Enable tailwindcss support
+    //     // whitelist: ['.article'], // Don't remove this selector
+    //     ignore: ['src/css/custom/'], // Ignore files/folders
+    //     // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+    //   }
+    // },
 
     // Uncomment to add in contentful
-    // {
-    //   resolve: `gatsby-source-contentful`,
-    //   options: {
-    //     spaceId: ``,
-    //     // Learn about environment variables: https://gatsby.dev/env-vars
-    //     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `myu3huharikk`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -105,23 +105,9 @@ module.exports = {
         ],
       }
     },
-    // Add fonts here (https://github.com/SirPole/google-fonts-plugin - for options)
+    // Docs (https://github.com/hupe1980/gatsby-plugin-webfonts/blob/master/gatsby-plugin-webfonts/README.md - for options)
     // Will automatically swap them (package - https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/ )
-    // {
-    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       {
-    //         family: `Oswald`,
-    //         subsets: [`latin`],
-    //       },
-    //       {
-    //         family: `Open Sans`,
-    //         variants: [`400`, `700`]
-    //       },
-    //     ],
-    //   },
-    // },
+   
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
@@ -147,6 +133,19 @@ module.exports = {
           }
         }
       }
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Roboto",
+              variants: ["400", "700"],
+            }
+          ],
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,

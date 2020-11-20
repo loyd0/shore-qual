@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply font-sans;
+}
 
 /* Helper classes */
 .transition {

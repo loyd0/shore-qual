@@ -2,15 +2,67 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { SocialIcons } from '../elements/SocialIcons'
 import Linked from '../elements/Linked';
+import { useStaticQuery, graphql } from 'gatsby';
+import Logo from '../elements/Logo';
 
 const Footer = props => {
 
+
+    const { contentfulSiteSettings, allContentfulCaseStudy } = useStaticQuery(graphql`
+        query FooterQuery {
+            contentfulSiteSettings(id: {eq: "779e0936-ba5b-557c-89f1-f0aece47a0d2"}) {
+                footerText
+                footerSocialLinks {
+                    link
+                    icon {
+                        file {
+                            url
+                            contentType
+                        }
+                        fluid {
+                            ...GatsbyContentfulFluid_withWebp
+                        }
+                    }
+                }
+            }
+            allContentfulCaseStudy {
+                nodes {
+                    title
+                }
+            }
+        }
+      
+    
+    
+    `)
+
     return (
-        <footer className="py-12 text-center bg-gray-100 text-gray-900 ">
-            {/* <img className="w-16 mb-4 mx-auto opacity-25" src={Logo} alt="" /> */}
-            {/* <SocialIcons className="flex justify-center space-x-4 text-xl " itemClassName="hover:text-gray-800 opacity-25 hover:opacity-100" icons={footerLinks} /> */}
-            <h5 className="text-lg mt-2 font-thin opacity-25 ">&copy; Sam Loyd {new Date().getFullYear()}</h5>
-            <h6 className="text-base font-thin mt-2 opacity-25 hover:opacity-100"><Linked linkTo="https://antler.digital">Looking for Antler Digital? Find it <span className="underline">here</span>.</Linked></h6>
+        <footer className="max-w-screen-xl mx-auto px-6 bg-gray-100">
+
+
+            <div className="grid grid-col-5">
+
+                <h4>PAGES</h4>
+                <ul className="">
+                    <li>
+                        <Linked linkTo="/">Home</Linked>
+                    </li>
+                    <li>
+                        <Linked linkTo="/services">Services</Linked>
+                    </li>
+                    <li>
+                        <Linked linkTo="/case-studies">Case Studies</Linked>
+                    </li>
+                    <li>
+                        <Linked linkTo="/about">About</Linked>
+                    </li>
+                    <li>
+                        <Linked linkTo="/contact">Contact</Linked>
+                    </li>
+                </ul>
+            </div>
+
+            <Logo />
         </footer>
     )
 }

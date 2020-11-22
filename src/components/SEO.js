@@ -58,6 +58,8 @@ function SEO({ description, lang, meta, title, image, article, twitterUsername }
       )}
 
       <meta charSet="UTF-8" />
+
+      <link rel="stylesheet" href="https://use.typekit.net/ugf3djc.css"></link>
     </Helmet>
   )
 }

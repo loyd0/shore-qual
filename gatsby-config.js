@@ -18,19 +18,19 @@ require("dotenv").config({
 // Handles removing the robot crawlers from Netlify preview domains and improves SEO
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://shorequal.com',
+  URL: NETLIFY_SITE_URL = "https://shorequal.com",
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-  CONTEXT: NETLIFY_ENV = NODE_ENV
-} = process.env;
-const isNetlifyProduction = NETLIFY_ENV === 'production';
-const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === "production"
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
 module.exports = {
   siteMetadata: {
     title: `Shore Qual`,
     description: `Simon Riley is a British qualitative researcher with over 15 years experience. He runs Shore, a qualitative research consultancy with a human touch.`,
     author: `Sam Loyd`,
-    siteUrl
+    siteUrl,
   },
   plugins: [
     {
@@ -56,7 +56,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-anchor-links",
       // If you want to add options
-      // options: { 
+      // options: {
       //   offset: -50
       // }
     },
@@ -66,10 +66,12 @@ module.exports = {
         postCssPlugins: [
           require("tailwindcss"), // CSS Framework
           require("autoprefixer"), // Browser Prefixes
-          require(`cssnano`)({ // Minify CSS
-            preset: `default`
-          })]
-      }
+          require(`cssnano`)({
+            // Minify CSS
+            preset: `default`,
+          }),
+        ],
+      },
     },
     // {
     //   resolve: `gatsby-plugin-purgecss`,
@@ -100,39 +102,37 @@ module.exports = {
           "@components": "src/components",
           "@elements": "src/components/elements",
         },
-        extensions: [
-          "js",
-        ],
-      }
+        extensions: ["js"],
+      },
     },
     // Docs (https://github.com/hupe1980/gatsby-plugin-webfonts/blob/master/gatsby-plugin-webfonts/README.md - for options)
     // Will automatically swap them (package - https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/ )
-   
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
         resolveEnv: () => NETLIFY_ENV,
         env: {
           production: {
-            policy: [{ userAgent: '*' }]
+            policy: [{ userAgent: "*" }],
           },
-          'branch-deploy': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
+          "branch-deploy": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
             sitemap: null,
-            host: null
+            host: null,
           },
-          'deploy-preview': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
+          "deploy-preview": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
             sitemap: null,
-            host: null
-          }
-        }
-      }
+            host: null,
+          },
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-webfonts`,
@@ -142,7 +142,7 @@ module.exports = {
             {
               family: "Roboto",
               variants: ["400", "700"],
-            }
+            },
           ],
         },
       },
@@ -151,7 +151,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `shore-qual`,
-        short_name: `Shorech`,
+        short_name: `Shore Qual Consultancy`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,

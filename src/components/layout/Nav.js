@@ -1,59 +1,153 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import Linked from '../elements/Linked'
-import UseBodyLock from '../../hooks/useBodyLock';
-// import { SocialIcons } from '../elements/SocialIcons';
-
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import Linked from "../elements/Linked"
+import UseBodyLock from "../../hooks/useBodyLock"
+import Logo from "../elements/Logo"
 
 const Nav = (props) => {
-
-    const pathName = typeof window !== "undefined" && window.location?.pathname
-
     const [menuOpen, setMenuOpen] = useState(false)
 
     UseBodyLock(menuOpen)
 
+    const hasBackground = props.background
 
+    const Link = (props) => (
+        <Linked
+            {...props}
+            className={`hover:text-secondary-100 ${props.className} ${hasBackground ? "text-white" : "text-secondary-400"
+                }`}
+        />
+    )
 
     return (
         <>
-            <nav className="hidden md:flex py-4 max-w-screen-lg mx-auto font-thin px-2" >
+            <nav className="hidden lg:flex py-4 max-w-screen-lg mx-auto font-thin px-6">
+                <Logo />
+                <ul className="uppercase flex w-full space-x-8 self-center ml-8">
+                    <li>
+                        <Link linkTo="/services">Services</Link>
+                    </li>
+                    <li>
+                        <Link linkTo="/testimonials">Testimonials</Link>
+                    </li>
+                    <li>
+                        <Link linkTo="/case-studies">Case Studies</Link>
+                    </li>
+                    <li>
+                        <Link linkTo="/about">About</Link>
+                    </li>
+                    <li>
+                        <Link linkTo="/contact">Contact</Link>
+                    </li>
+                    <li style={{ marginLeft: "auto" }}>
+                        <Link className="" linkTo="/blog">
+                            Blog
+            </Link>
+                    </li>
+                </ul>
+
                 {/*  Desktop */}
             </nav>
 
-            <div className="md:hidden flex relative">
-                {/* Mobile */}
+            <div className="lg:hidden relative py-4 px-6 flex justify-between">
+                <Logo />
+                <button onClick={() => setMenuOpen(!menuOpen)}>MENU</button>
             </div>
 
             {/* Mobile Nav */}
             <div
-                className="md:hidden text-black w-full transition-all duration-700 absolute z-20 top-0 shadow-xl bg-highlight "
-                style={{ height: '100vh', marginTop: menuOpen ? "10vh" : "-100vh", marginLeft: menuOpen ? "0vw" : "-100vw", borderRadius: menuOpen ? "0px 0px 400px 0px" : "0px 0px 100px 0px" }}
+                className="lg:hidden text-black w-full bg-secondary-100  transition-all duration-700 absolute z-20 top-0 shadow-xl"
+                style={{
+                    height: "100vh",
+                    marginTop: menuOpen ? "10vh" : "-100vh",
+                    marginLeft: menuOpen ? "0vw" : "-100vw",
+                    borderRadius: menuOpen ? "0px 0px 300px 0px" : "0px 0px 100px 0px",
+                }}
+            />
+
+            <div
+                className="lg:hidden text-black w-full bg-primary transition-all duration-700 absolute z-20 top-0 shadow-xl"
+                style={{
+                    height: "100vh",
+                    marginTop: menuOpen ? "10vh" : "-100vh",
+                    marginLeft: menuOpen ? "0vw" : "-100vw",
+                    borderRadius: menuOpen ? "0px 0px 400px 0px" : "0px 0px 100px 0px",
+                }}
             />
 
             <nav
-                className="md:hidden text-black bg-gray-100 w-full transition-all duration-700 delay-75 fixed z-30 top-0 shadow-lg font-thin"
-                style={{ height: '100vh', marginTop: menuOpen ? "0vh" : "-100vh", marginLeft: menuOpen ? "0vw" : "-100vw", borderRadius: "0px 0px 400px 0px" }}
-
+                className="lg:hidden text-black bg-gray-100 w-full transition-all duration-700 delay-75 fixed z-30 top-0 shadow-lg font-thin"
+                style={{
+                    height: "100vh",
+                    marginTop: menuOpen ? "0vh" : "-100vh",
+                    marginLeft: menuOpen ? "0vw" : "-100vw",
+                    borderRadius: "0px 0px 400px 0px",
+                }}
             >
+
+
+                <div className="lg:hidden relative py-4 px-6 flex justify-between z-40">
+                    <button className="ml-auto" onClick={() => setMenuOpen(!menuOpen)}>X</button>
+                </div>
+
+                <ul className="text-center uppercase space-y-10 md:space-y-12 text-2xl flex flex-col md:mt-6">
+                    <li>
+                    <Link linkTo="/"> <Logo className="mx-auto" /></Link>
+                       
+                    </li>
+                    <li>
+                        <Link linkTo="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link linkTo="/services">Services</Link>
+                    </li>
+                    <li>
+                        <Link linkTo="/testimonials">Testimonials</Link>
+                    </li>
+                    <li>
+                        <Link linkTo="/case-studies">Case Studies</Link>
+                    </li>
+                    <li>
+                        <Link linkTo="/about">About</Link>
+                    </li>
+                    <li>
+                        <Link linkTo="/contact">Contact</Link>
+                    </li>
+                    <li >
+                        <Link className="" linkTo="/blog">
+                            Blog
+                        </Link>
+                    </li>
+                </ul>
 
             </nav>
         </>
     )
 }
 
-
 const NavLinks = ({ links, active, className, itemClassName }) => {
-    return <ul className={className}>
-        {links && links.map(({ linkTo, page }) =>
-            <li key={linkTo + page} className={`w-1/3 hover:font-normal ${active === linkTo ? "font-normal" : ""} text-center relative ${itemClassName}`}>
-                <Linked linkTo={linkTo} >{page}  <div className={`block mx-auto w-4/5 border-b-4 ${active === linkTo ? "border-highlight" : "border-transparent"} transform -rotate-3`}></div> </Linked>
-            </li>)}
-    </ul>
+    return (
+        <ul className={className}>
+            {links &&
+                links.map(({ linkTo, page }) => (
+                    <li
+                        key={linkTo + page}
+                        className={`w-1/3 hover:font-normal ${active === linkTo ? "font-normal" : ""
+                            } text-center relative ${itemClassName}`}
+                    >
+                        <Linked linkTo={linkTo}>
+                            {page}{" "}
+                            <div
+                                className={`block mx-auto w-4/5 border-b-4 ${active === linkTo ? "border-highlight" : "border-transparent"
+                                    } transform -rotate-3`}
+                            ></div>{" "}
+                        </Linked>
+                    </li>
+                ))}
+        </ul>
+    )
 }
 
-Nav.propTypes = {
-
-}
+Nav.propTypes = {}
 
 export default Nav

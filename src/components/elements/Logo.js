@@ -10,7 +10,7 @@ export default function Logo(props) {
       ) {
         siteLogo {
           fluid {
-            src
+            ...GatsbyContentfulFluid_withWebp
           }
           file {
             url

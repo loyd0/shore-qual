@@ -61,7 +61,7 @@ const Footer = (props) => {
                   className="flex mt-2 text-primary"
                   linkTo={link}
                 >
-                  <Image image={icon} alt={icon.title} className="mr-4 w-5" />
+                  <Image image={icon} alt={icon.title} className="mr-2 mt-1 lg:mr-4 w-6 lg:w-5" />
                   {linkText}
                 </Link>
               )

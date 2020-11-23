@@ -16,7 +16,7 @@ const Nav = (props) => {
     const Link = (props) => (
         <Linked
             {...props}
-            className={`text-shadow-lg hover:text-secondary-100 ${props.className} ${hasBackground ? "text-secondary-400 lg:text-white" : "text-secondary-400"
+            className={`lg:text-shadow-sm hover:text-secondary-100 ${props.className} ${hasBackground ? "text-secondary-400 lg:text-white" : "text-secondary-400"
                 }`}
         />
     )
@@ -80,7 +80,7 @@ const Nav = (props) => {
             />
 
             <nav
-                className="lg:hidden text-black bg-gray-100 w-full transition-all duration-700 delay-75 fixed z-30 top-0 shadow-lg font-thin"
+                className="lg:hidden text-black bg-gray-100 w-full transition-all duration-700 delay-75 fixed z-front top-0 shadow-lg font-thin"
                 style={{
                     height: "100vh",
                     marginTop: menuOpen ? "0vh" : "-100vh",

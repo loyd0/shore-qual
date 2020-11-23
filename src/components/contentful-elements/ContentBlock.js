@@ -1,10 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby';
 
-export default function ContentBlock() {
+export default function ContentBlock({ header, description, id, icon, ...restProps}) {
     return (
-        <div>
-            
+        <div {...restProps}>
+            <h3 className="font-bold">{header}</h3>
+            <p className="text-xl leading-loose">{description.text}</p>
         </div>
     )
 }

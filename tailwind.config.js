@@ -1,3 +1,6 @@
+const textShadowPlugin = require('./src/utils/textShadowPlugin');
+
+
 module.exports = {
   purge: ["./src/**/*.js"],
   theme: {
@@ -144,14 +147,6 @@ module.exports = {
       zIndex: {
         front: 99999,
         back: -99999,
-      },
-      textShadow: {
-        "text-shadow": "0px 0px 1px rgb(0 0 0 / 20%), 0px 0px 1px rgb(1 0 5 / 10%)",
-        "text-shadow-sm": "1px 1px 3px rgb(36 37 47 / 25%)",
-        "text-shadow-md": "0px 1px 2px rgb(30 29 39 / 19%), 1px 2px 4px rgb(54 64 147 / 18%)",
-        "text-shadow-lg": "3px 3px 6px rgb(0 0 0 / 26%), 0 0 5px rgb(15 3 86 / 22%)",
-        "text-shadow-xl": "1px 1px 3px rgb(0 0 0 / 29%), 2px 4px 7px rgb(73 64 125 / 35%)",
-        "text-shadow-none": "none"
       }
     },
   },
@@ -168,6 +163,9 @@ module.exports = {
   plugins: [
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
-    require("@tailwindcss/aspect-ratio")
+    require("@tailwindcss/aspect-ratio"),
+    require("./src/utils/textShadowPlugin")
   ],
 }
+
+

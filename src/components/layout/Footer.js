@@ -55,9 +55,10 @@ const Footer = (props) => {
           <div className="lg:col-span-3 text-secondary-400">
             {footerText && <p>{footerText}</p>}
             <h3 className=" mt-6 mb-3 text-xl">SIMON RILEY</h3>
-            {footerSocialLinks.map(({ link, linkText, icon }) => {
+            {footerSocialLinks.map(({ link, linkText, icon }, index) => {
               return (
-                <Link
+                <Link 
+                  key={link + index}
                   className="flex mt-2 text-primary"
                   linkTo={link}
                 >
@@ -93,8 +94,8 @@ const Footer = (props) => {
               <li>
                 <h5 className="text-secondary-400">CASE STUDIES</h5>
               </li>
-              {allContentfulCaseStudy.nodes.map((study) => (
-                <li>
+              {allContentfulCaseStudy.nodes.map((study, index) => (
+                <li key={study.title + index}>
                   <Link linkTo="/contact">{study.title}</Link>
                 </li>
               ))}

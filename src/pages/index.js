@@ -3,12 +3,16 @@ import Layout from "../components/layout/Layout"
 import SEO from "../components/SEO"
 import { graphql } from 'gatsby';
 import CoverImage from "../components/elements/CoverImage";
+import DownArrow from '../images/svgs/down-arrow';
+import { AnchorLink } from "gatsby-plugin-anchor-links";
+import ContentBlock from "../components/contentful-elements/ContentBlock";
+import Section from '../components/contentful-elements/Section';
 
 const IndexPage = ({ data }) => {
 
 
   const { contentfulHomePage } = data;
-  const { title, header, subHeader, scrollText, coverPhoto } = contentfulHomePage
+  const { title, header, subHeader, scrollText, coverPhoto, introContent, testimonialsSection } = contentfulHomePage
 
   return (
     <Layout
@@ -17,20 +21,40 @@ const IndexPage = ({ data }) => {
       <SEO title={title} />
 
       <section className="relative">
-        <CoverImage image={coverPhoto} alt={coverPhoto.title} overlay="bg-gray-900 bg-opacity-10 " />
+        <CoverImage image={coverPhoto} alt={coverPhoto.title} overlay="bg-gray-900 bg-opacity-20" className="-mt-24" >
+          <div className="flex h-screen w-full top-0 items-center px-6 text-white  text-shadow">
 
-        <div className="flex absolute h-full w-full top-0 items-center px-6 text-white ">
+            <div className="flex flex-col text-center w-full relative z-40 space-y-6 ">
+              {header && <h2 className="text-5xl font-bold ">{header}</h2>}
+              {subHeader && <h4>{subHeader}</h4>}
+              {scrollText && <AnchorLink to="#intro" className="w-48 mx-auto ">
+                <p className="leading-tight">{scrollText}</p>
+                <DownArrow className="mx-auto mt-4 animate-bounce duration-100" />
+              </AnchorLink>}
+            </div>
 
-          <div className="flex flex-col text-center w-full relative z-40">
-            {header && <h2 className="text-5xl ">{header}</h2>}
-            {subHeader && <h4>{subHeader}</h4>}
-            {scrollText && <p>{scrollText}</p>}
+
           </div>
+        </CoverImage>
 
 
-        </div>
 
       </section>
+
+
+      <section id="intro" className=" flex lg:flex-row flex-col w-full justify-between h-full min-h-800  py-12 max-w-6xl mx-auto px-4 text-primary mt-32">
+
+
+        <ContentBlock {...introContent[0]} className="lg:w-1/2" />
+
+        {/* Add in the footsteps animation here. */}
+
+        <ContentBlock {...introContent[1]} className="lg:w-1/2 lg:self-end ml-auto" />
+
+      </section>
+
+
+      <Section id="testimonials" {...testimonialsSection} className="text-secondary-400" />
 
     </Layout>
   )
@@ -50,11 +74,11 @@ query IndexPageQuery {
     header
     scrollText
     subHeader
-    testimonialsSection {
-      ...SectionFragment
-    }
     introContent {
       ...ContentBlockFragment
+    }
+    testimonialsSection {
+      ...SectionFragment
     }
     sections {
       ...AboutBlockFragment

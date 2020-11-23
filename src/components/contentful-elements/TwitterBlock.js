@@ -1,11 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby';
+import BaseSectionBlock from '../elements/BaseSectionBlock';
+import PrettyLink from '../elements/PrettyLink';
 
-export default function TwitterBlock() {
+export default function TwitterBlock({ title, linkText, backgroundImage}) {
     return (
-        <div>
-            
-        </div>
+      <BaseSectionBlock backgroundImage={backgroundImage}>
+      <h3>{title} </h3>
+      <PrettyLink linkTo="https://twitter.com/ShoreQual" >{linkText}</PrettyLink>
+    </BaseSectionBlock>
     )
 }
 

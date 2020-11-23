@@ -1,10 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby';
+import Image from '../elements/Image';
 
-export default function BlogPost() {
+export default function BlogPost({
+  id, title, tags, description, coverImage
+}) {
     return (
         <div>
-            
+           <Image image={coverImage} src={coverImage.miniFluid} alt={coverImage.title}/>
+           <h5>{title}</h5>
         </div>
     )
 }
@@ -22,9 +26,8 @@ fragment BlogPostFragment on ContentfulBlogPost {
   }
   author
   coverImage {
-    fluid {
-      src
-    }
+    ...MiniImageFragment
+    ...ImageFragment
   }
 }
 

@@ -10,6 +10,7 @@ export default function Section({
   coverImage,
   id,
   className,
+  blockClassNames,
   ...restProps
 }) {
 
@@ -17,20 +18,23 @@ export default function Section({
 
   const Blocks = useBlocks(blocks)
 
-
   const SectionChildren = () => 
   <div id={id} className={` flex h-full relative z-front ${className} `} {...restProps}>
     <div className="flex w-full py-12 text-center h-full  ">
 
-      <div className="h-full">
-      {header && <h2 className="uppercase font-bold">
+      <div className="h-full w-full">
+      {header && <h2 className="uppercase font-bold mt-4 mb-4 px-4">
         {header}
       </h2>
       }
-      {description && <p className="max-w-3xl mx-auto text-center">
+      {description && <p className="max-w-3xl text-xl leading-normal mx-auto text-center px-4">
         {description.text}
       </p>}
-        {Blocks.map((Block, index) => <Block key={index} />)}
+
+      <div className={blockClassNames}>
+      {Blocks && Blocks.map((Block, index) => <Block key={index} />)}
+      </div>
+      
       </div>
     </div>
   </div>

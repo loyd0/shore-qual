@@ -10,9 +10,6 @@ import LeftChevron from '../../images/svgs/left-chevron';
 
 export default function InfiniteCarousel({ name, slides = [], images = [] }) {
 
-
-    // const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0)
-
     const settings = {
         className: "center",
         lazyLoad: true,
@@ -22,7 +19,6 @@ export default function InfiniteCarousel({ name, slides = [], images = [] }) {
         slidesToShow: 1,
         speed: 500,
         dots: false,
-        // beforeChange: (oldIndex, newIndex) => beforeChange(oldIndex, newIndex),
         nextArrow: <RightArrow />,
         prevArrow: <LeftArrow />,
         responsive: [
@@ -47,10 +43,6 @@ export default function InfiniteCarousel({ name, slides = [], images = [] }) {
             }
         ]
     };
-    // const beforeChange = (oldIndex, newIndex) => {
-    //     return setCurrentSlideIndex(newIndex)
-    // }
-
 
     return (
         <div id="infinite-slider"

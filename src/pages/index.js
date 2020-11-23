@@ -7,12 +7,17 @@ import DownArrow from '../images/svgs/down-arrow';
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import ContentBlock from "../components/contentful-elements/ContentBlock";
 import Section from '../components/contentful-elements/Section';
+import { useBlocks } from '../utils/useBlocks';
 
 const IndexPage = ({ data }) => {
 
 
   const { contentfulHomePage } = data;
-  const { title, header, subHeader, scrollText, coverPhoto, introContent, testimonialsSection } = contentfulHomePage
+  const { title, header, subHeader, scrollText, coverPhoto, introContent, testimonialsSection, sections, blogSection } = contentfulHomePage
+
+
+  const Sections = useBlocks(sections)
+console.log(blogSection)
 
   return (
     <Layout
@@ -23,7 +28,6 @@ const IndexPage = ({ data }) => {
       <section className="relative">
         <CoverImage image={coverPhoto} alt={coverPhoto.title} overlay="bg-gray-900 bg-opacity-20" className="-mt-24" >
           <div className="flex h-screen w-full top-0 items-center px-6 text-white  text-shadow">
-
             <div className="flex flex-col text-center w-full relative z-40 space-y-6 ">
               {header && <h2 className="text-5xl font-bold ">{header}</h2>}
               {subHeader && <h4>{subHeader}</h4>}
@@ -42,7 +46,9 @@ const IndexPage = ({ data }) => {
       </section>
 
 
-      <section id="intro" className=" flex lg:flex-row flex-col w-full justify-between h-full min-h-800  py-12 max-w-6xl mx-auto px-4 text-primary mt-32">
+      <section 
+        id="intro" 
+        className=" flex lg:flex-row flex-col w-full justify-between h-full min-h-800  py-12 max-w-6xl mx-auto px-4 text-primary mt-32">
 
 
         <ContentBlock {...introContent[0]} className="lg:w-1/2" />
@@ -55,6 +61,14 @@ const IndexPage = ({ data }) => {
 
 
       <Section id="testimonials" {...testimonialsSection} className="text-secondary-400" />
+
+
+      <section className="grid grid-cols-2 grid-rows-2">
+        {Sections.map( Section => <Section />)}
+      </section>
+
+      <Section id="blog" {...blogSection} className="text-secondary-400" blockClassNames="grid grid-cols-3  mx-auto max-w-6xl" />
+
 
     </Layout>
   )
@@ -85,6 +99,9 @@ query IndexPageQuery {
       ...CaseStudyBlockFragment
       ...ServiceBlockFragment
       ...TwitterBlockFragment
+    }
+    blogSection {
+      ...SectionFragment
     }
   }
 }

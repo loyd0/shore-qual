@@ -6,11 +6,11 @@ import BaseSectionBlock from '../elements/BaseSectionBlock';
 
 export default function AboutBlock({ name, description, linkText, headshot, backgroundImage}) {
   return (
-    <BaseSectionBlock backgroundImage={backgroundImage}>
-      <Image className=" w-88 rounded-full h-104" image={headshot} alt={headshot.title} />
-      <h3>{name} </h3>
-      <p>{description}</p>
-      <PrettyLink linkTo="/services" >{linkText}</PrettyLink>
+    <BaseSectionBlock backgroundImage={backgroundImage} className="text-center justify-center text-primary ">
+      <Image className=" w-80 rounded-full h-104 mx-auto" image={headshot} alt={headshot.title} />
+      <h3 className="uppercase font-bold mt-8">{name} </h3>
+      <p className="max-w-sm mx-auto mb-4">{description}</p>
+      <PrettyLink className="justify-center underline text-xl absolute bottom-0  w-full" linkTo="/services" >{linkText}</PrettyLink>
     </BaseSectionBlock>
   )
 }

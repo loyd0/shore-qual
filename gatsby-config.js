@@ -134,6 +134,7 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-readingtime-contentful',
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {

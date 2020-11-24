@@ -1,7 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby';
 
-export default function CaseStudyFragment() {
+export default function CaseStudyFragment({
+  preHeader, 
+  title, 
+  description,
+  coverImage,
+  content
+}) {
     return (
         <div>
             

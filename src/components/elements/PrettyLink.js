@@ -4,7 +4,7 @@ import Linked from './Linked';
 
 export default function PrettyLink({ children, className, ...restProps }) {
     return (
-        <Linked {...restProps} className="flex items-center ">
+        <Linked {...restProps} className={`flex items-center ${className}`}>
             { children} <span className="ml-4 transform -rotate-90"><DownArrow className="animate-bounce"/></span> 
         </Linked>
     )

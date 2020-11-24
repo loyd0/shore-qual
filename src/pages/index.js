@@ -16,8 +16,7 @@ const IndexPage = ({ data }) => {
   const { title, header, subHeader, scrollText, coverPhoto, introContent, testimonialsSection, sections, blogSection } = contentfulHomePage
 
 
-  const Sections = useBlocks(sections)
-console.log(blogSection)
+  const SiteSections = useBlocks(sections)
 
   return (
     <Layout
@@ -63,11 +62,16 @@ console.log(blogSection)
       <Section id="testimonials" {...testimonialsSection} className="text-secondary-400" />
 
 
-      <section className="grid grid-cols-2 grid-rows-2">
-        {Sections.map( Section => <Section />)}
+      <section className="grid md:grid-cols-2 md:grid-rows-2">
+        {SiteSections.map( SiteSection => <SiteSection />)}
       </section>
 
-      <Section id="blog" {...blogSection} className="text-secondary-400" blockClassNames="grid grid-cols-3  mx-auto max-w-6xl" />
+      <Section 
+        {...blogSection} 
+        id="blog" 
+        className="text-secondary-400" 
+        blockClassNames="grid grid-cols-2 gap-6  mx-auto max-w-6xl mt-8" 
+        />
 
 
     </Layout>

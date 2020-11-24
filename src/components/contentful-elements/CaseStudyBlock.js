@@ -6,13 +6,25 @@ import PrettyLink from '../elements/PrettyLink';
 
 export default function CaseStudyBlock({ title, linkText, caseStudies, backgroundImage}) {
   return (
-    <BaseSectionBlock backgroundImage={backgroundImage}>
-      <h3>{title} </h3>
-      {caseStudies.map(caseStudy => caseStudy.title)}
-      <PrettyLink linkTo="/services" >{linkText}</PrettyLink>
+    <BaseSectionBlock backgroundImage={backgroundImage} className="text-primary">
+      <h3 className="font-bold mb-8">{title} </h3>
+      {[...caseStudies,...caseStudies ].map(caseStudy => <CaseStudyPost {...caseStudy}/>)}
+      <PrettyLink className="underline text-xl absolute bottom-0" linkTo="/services" >{linkText}</PrettyLink>
     </BaseSectionBlock>
   )
 }
+
+
+const CaseStudyPost = ({
+  preHeader, 
+  title, 
+  description
+}) => <article className="mt-12">
+  <p className="text-sm font-bold">{preHeader}</p>
+  <h4 className="font-bold">{title}</h4>
+  <p className="hidden lg:block ">{description}</p>
+  <p className="lg:hidden truncate">{description}</p>
+</article>
 
 
 export const CaseStudyBlockFragment = graphql`

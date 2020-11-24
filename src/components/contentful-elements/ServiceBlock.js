@@ -7,8 +7,8 @@ import Image from '../elements/Image';
 
 export default function ServiceBlock({ title, linkText, services, backgroundImage }) {
   return (
-    <CoverImage image={backgroundImage} alt={backgroundImage.title}>
-      <BaseSectionBlock bgImage={true} className="z-front relative text-white bg-none  ">
+    <CoverImage image={backgroundImage} alt={backgroundImage.title} >
+      <BaseSectionBlock bgImage={true} className="z-front relative text-white bg-none overflow-hidden  ">
 
         <h3 className="uppercase font-bold text-4xl mb-8">{title} </h3>
 
@@ -16,7 +16,7 @@ export default function ServiceBlock({ title, linkText, services, backgroundImag
         {services.map(service => <ServiceIcon image={service.icon} alt={service.icon.title}></ServiceIcon>)}
         </div>
        
-        <PrettyLink className="underline text-xl bottom-0 absolute" linkTo="/services" >{linkText}</PrettyLink>
+        <PrettyLink className="underline text-lg lg:text-xl bottom-0 absolute" linkTo="/services" >{linkText}</PrettyLink>
       </BaseSectionBlock>
     </CoverImage>
   )

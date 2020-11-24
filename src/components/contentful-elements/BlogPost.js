@@ -23,7 +23,7 @@ export default function BlogPost({
             <ul className="flex space-x-4 w-full flex-wrap h-8 overflow-hidden">
               { tags.map( tag => <li className="flex items-center"><Tag className="mr-2"/>{tag}</li>)}
             </ul>
-            <h4 className="text-4xl truncate font-bold">{title}</h4>
+            <h4 className="text-xl lg:text-4xl truncate font-bold">{title}</h4>
             <p className="truncate">{description.text}</p>
             </div>
           

@@ -53,7 +53,7 @@ export default function InfiniteCarousel({ name, slides = [], images = [] }) {
                         <div className="flex flex-row lg:flex-col w-full justify-center lg:col-span-2 items-center mb-4 lg:mb-0 ">
                         <Image className="mx-auto rounded-full w-40 h-40 self-center lg:w-56 lg:h-56" image={slide.image} alt={slide.image.title} />
                         </div>
-                        <div className="flex flex-col col-span-3 pr-6 text-justify space-y-3">
+                        <div className="flex flex-col col-span-3 lg:pr-6 text-justify space-y-3">
                             <p className=" leading-normal lg:leading-loose">{slide.quote.text}</p>
                             <h5 className="font-bold">{slide.name}</h5>
                         </div>
@@ -65,8 +65,8 @@ export default function InfiniteCarousel({ name, slides = [], images = [] }) {
     );
 }
 
-const RightArrow = (props) =>  <RightChevron {...props} className={`text-primary -mt-4 right-8 sm:right-12 md:right-24 lg:right-56 z-front absolute top-1/2`} />
-const LeftArrow = (props) => <LeftChevron {...props} className={`text-primary -mt-4 left-8 sm:left-12 md:left-24 lg:left-56 z-front absolute top-1/2`} />
+const RightArrow = (props) =>  <RightChevron {...props} className={`text-primary -mt-4 right-2 sm:right-12 md:right-24 lg:right-56 z-front absolute top-1/2`} />
+const LeftArrow = (props) => <LeftChevron {...props} className={`text-primary -mt-4 left-2 sm:left-12 md:left-24 lg:left-56 z-front absolute top-1/2`} />
 
 //  To add images back in
 {/* {images && !slides && images.map(({ image, ...restOfImage}, index) =>

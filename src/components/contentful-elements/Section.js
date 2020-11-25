@@ -61,6 +61,7 @@ fragment SectionFragment on ContentfulSection {
     ...BlogPostFragment
     ...CarouselBlockFragment
     ...TwoColumnListFragment
+    ...LinkFragment
   }
 }
 

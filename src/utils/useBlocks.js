@@ -7,6 +7,7 @@ import ServiceBlock from '../components/contentful-elements/ServiceBlock';
 import TwitterBlock from '../components/contentful-elements/TwitterBlock';
 import AboutBlock from '../components/contentful-elements/AboutBlock';
 import BlogPost from '../components/contentful-elements/BlogPost';
+import Link from '../components/contentful-elements/Link';
 
 const blocks = {
     ContentfulContentBlock: ContentBlock,
@@ -16,12 +17,11 @@ const blocks = {
     ContentfulServiceBlock: ServiceBlock,
     ContentfulTwitterBlock: TwitterBlock,
     ContentfulAboutBlock: AboutBlock,
-    ContentfulBlogPost: BlogPost
+    ContentfulBlogPost: BlogPost,
+    ContentfulLink: Link
 }
 
 export const useBlocks = (blocks, props={}) => {
-
-    console.log(blocks)
     return blocks ? blocks.map(block => renderBlock(block, props[block.__typename]) ) : [() => <div />]
 }
 

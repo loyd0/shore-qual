@@ -16,7 +16,10 @@ const IndexPage = ({ data }) => {
   const { title, header, subHeader, scrollText, coverPhoto, introContent, testimonialsSection, sections, blogSection } = contentfulHomePage
 
 
+
   const SiteSections = useBlocks(sections)
+
+  console.log('SiteSections', SiteSections)
 
   return (
     <Layout
@@ -25,7 +28,7 @@ const IndexPage = ({ data }) => {
       <SEO title={title} />
 
       <section className="relative">
-        <CoverImage image={coverPhoto} alt={coverPhoto.title} overlay="bg-gray-900 bg-opacity-20" className="-mt-24" >
+        <CoverImage image={coverPhoto} alt={coverPhoto.title} overlay="bg-gray-900 bg-opacity-20" className="-mt-20" >
           <div className="flex h-screen w-full top-0 items-center px-6 text-white  text-shadow">
             <div className="flex flex-col text-center w-full relative z-40 space-y-6 ">
               {header && <h2 className="text-5xl font-bold ">{header}</h2>}

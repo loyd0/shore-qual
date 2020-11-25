@@ -1,11 +1,9 @@
 import React from "react"
 import Img from "gatsby-image"
-import PostCard from "../components/elements/PostCard"
 
 // import hljs from 'highlight.js/lib/core';
 // import 'highlight.js/styles/github.css';
-import LinkTo from "../components/LinkTo"
-
+import Linked from '../elements/Linked'
 // Lines
 export const Hr = ({ children, ...props }) => (
   <hr {...props} className="my-16 max-w-2xl mx-auto" />
@@ -13,9 +11,9 @@ export const Hr = ({ children, ...props }) => (
 
 // Links
 export const A = ({ children, ...props }) => (
-  <LinkTo className="font-bold text-green-800" linkTo={props.href}>
+  <Linked className="font-bold text-green-800" linkTo={props.href}>
     {children}
-  </LinkTo>
+  </Linked>
 )
 
 // Lists
@@ -125,24 +123,24 @@ export const RichInlinePost = ({ node, children }) => {
     }
     return (
       <div className="px-4 md:px-12 max-w-4xl mx-auto">
-        <PostCard
+        {/* <PostCard
           coverImage={{ fluid }}
           linkTo={slug}
           header={title}
           subHeader={subtitle}
           className="my-16"
-        />
+        /> */}
       </div>
     )
   }
   return (
     <div className="px-4 md:px-12 max-w-4xl mx-auto">
-      <PostCard
+      {/* <PostCard
         linkTo={slug}
         header={title}
         subHeader={subtitle}
         className="my-16"
-      />
+      /> */}
     </div>
   )
 }

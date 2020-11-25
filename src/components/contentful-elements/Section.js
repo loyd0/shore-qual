@@ -14,8 +14,6 @@ export default function Section({
   ...restProps
 }) {
 
-
-
   const Blocks = useBlocks(blocks)
 
   const SectionChildren = () => 
@@ -27,7 +25,7 @@ export default function Section({
         {header}
       </h2>
       }
-      {description && <p className="max-w-3xl text-xl leading-normal mx-auto text-center px-4">
+      {description && <p className="max-w-3xl text-lg lg:text-xl leading-normal mx-auto text-center px-4">
         {description.text}
       </p>}
 

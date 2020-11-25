@@ -8,6 +8,8 @@ import TwitterBlock from '../components/contentful-elements/TwitterBlock';
 import AboutBlock from '../components/contentful-elements/AboutBlock';
 import BlogPost from '../components/contentful-elements/BlogPost';
 import Link from '../components/contentful-elements/Link';
+import Service from '../components/contentful-elements/Service';
+import TwoColumnList from '../components/contentful-elements/TwoColumnList';
 
 const blocks = {
     ContentfulContentBlock: ContentBlock,
@@ -18,7 +20,8 @@ const blocks = {
     ContentfulTwitterBlock: TwitterBlock,
     ContentfulAboutBlock: AboutBlock,
     ContentfulBlogPost: BlogPost,
-    ContentfulLink: Link
+    ContentfulLink: Link,
+    ContentfulTwoColumnList: TwoColumnList,
 }
 
 export const useBlocks = (blocks, props={}) => {
@@ -29,7 +32,5 @@ export const useBlocks = (blocks, props={}) => {
 const renderBlock = (block, props={}) => {
     const type = block.__typename
     const Component  = blocks[type]
-
-    console.log(type)
     return Component ? () => <Component {...block} {...props}/> : () => <div />
 }

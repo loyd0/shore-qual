@@ -24,7 +24,10 @@ const Nav = (props) => {
     return (
         <>
             <nav className="hidden lg:flex py-4 max-w-screen-xl mx-auto font-thin px-6 relative z-20">
+                <Linked linkTo="/">
                 <Logo />
+                </Linked>
+               
                 <ul className="uppercase flex w-full space-x-8 self-center ml-8">
                     <li>
                         <Link linkTo="/services">Services</Link>

@@ -2,8 +2,8 @@ import React from "react"
 
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import LinkTo from "../components/LinkTo"
 import { RichInlineImage, RichInlinePost, Hr, Quote } from "./Components"
+import Linked from '../elements/Linked';
 
 const options = {
   renderMark: {
@@ -22,7 +22,7 @@ const options = {
     [BLOCKS.HEADING_1]: (node, children) => <h2>{children}</h2>,
     [BLOCKS.HEADING_2]: (node, children) => <h3>{children}</h3>,
     [BLOCKS.HEADING_3]: (node, children) => <h4>{children}</h4>,
-    [BLOCKS.PARAGRAPH]: (node, children) => <p className="mb-8">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-xl mb-8">{children}</p>,
     [BLOCKS.QUOTE]: (node, children) => <Quote>{children}</Quote>,
     [BLOCKS.HR]: () => <Hr />,
     [BLOCKS.LIST_ITEM]: (node, children) => (
@@ -71,9 +71,9 @@ const options = {
       }
     },
     [INLINES.HYPERLINK]: (node, children) => (
-      <LinkTo linkTo={node.data.uri} className="text-highlight underline">
+      <Linked linkTo={node.data.uri} className="text-highlight underline">
         {children}{" "}
-      </LinkTo>
+      </Linked>
     ),
     [INLINES.EMBEDDED_ENTRY]: (node, children) => {
       if (

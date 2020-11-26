@@ -8,6 +8,21 @@ import { AnchorLink } from "gatsby-plugin-anchor-links";
 import ContentBlock from "../components/contentful-elements/ContentBlock";
 import Section from '../components/contentful-elements/Section';
 import { useBlocks } from '../utils/useBlocks';
+import Lottie from 'react-lottie';
+import shoreAnimation from '../animations/shore.json'
+
+
+const shoreAnimationOptions = {
+  loop: true,
+  autoplay: true, 
+  animationData: shoreAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice'
+  }
+};
+
+
+
 
 const IndexPage = ({ data }) => {
 
@@ -28,10 +43,20 @@ const IndexPage = ({ data }) => {
       <SEO title={title} />
 
       <section className="relative">
-        <CoverImage image={coverPhoto} alt={coverPhoto.title} overlay="bg-gray-900 bg-opacity-20" className="-mt-20" >
+        <CoverImage
+        style={{ objectPosition: "90%"}}
+        image={coverPhoto} alt={coverPhoto.title} overlay="bg-gray-900 bg-opacity-20" className="-mt-20" >
           <div className="flex h-screen w-full top-0 items-center px-6 text-white  text-shadow">
-            <div className="flex flex-col text-center w-full relative z-40 space-y-6 ">
-              {header && <h2 className="text-5xl font-bold ">{header}</h2>}
+            <div className="flex flex-col text-center w-full relative z-front space-y-6 ">
+
+              <div className="max-w-2xl mx-auto">
+              <Lottie 
+                options={shoreAnimationOptions}
+                width={"100%"}
+                />
+              </div>
+            
+              {header && <h2 className="lg:text-5xl font-bold ">{header}</h2>}
               {subHeader && <h4>{subHeader}</h4>}
               {scrollText && <AnchorLink to="#intro" className="w-48 mx-auto ">
                 <p className="leading-tight">{scrollText}</p>

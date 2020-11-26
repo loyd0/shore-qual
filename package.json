@@ -40,6 +40,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^6.8.6",
+    "react-lottie": "^1.2.3",
     "react-slick": "^0.27.13",
     "react-twitter-widgets": "^1.9.5",
     "slick-carousel": "^1.8.1",

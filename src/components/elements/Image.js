@@ -2,7 +2,7 @@ import React from "react"
 import Img from "gatsby-image"
 import { graphql } from 'gatsby'
 
-export default function Image({ image, src, alt, ...restProps }) {
+export default function Image({ image={}, src, alt, ...restProps }) {
   const isFluid = !!image?.fluid 
   const isFixed = !!image?.fixed 
 
@@ -13,7 +13,7 @@ export default function Image({ image, src, alt, ...restProps }) {
   ) : isFixed ? (
     <Img fixed={image.fixed} title={alt} {...restProps} />
   ) :(
-      <img src={image.file.url} alt={alt} {...restProps} />
+      <img src={image?.file?.url} alt={alt} {...restProps} />
     )
 }
 

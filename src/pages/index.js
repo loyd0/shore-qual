@@ -49,7 +49,7 @@ const IndexPage = ({ data }) => {
           <div className="flex h-screen w-full top-0 items-center px-6 text-white  text-shadow">
             <div className="flex flex-col text-center w-full relative z-front space-y-6 ">
 
-              <div className="max-w-2xl mx-auto">
+              <div className="max-w-2xl mx-auto mt-12">
               <Lottie 
                 options={shoreAnimationOptions}
                 width={"100%"}

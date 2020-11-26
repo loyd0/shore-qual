@@ -3,8 +3,8 @@ import Img from "gatsby-image"
 import { graphql } from 'gatsby'
 
 export default function Image({ image, src, alt, ...restProps }) {
-  const isFluid = !!image.fluid 
-  const isFixed = !!image.fixed 
+  const isFluid = !!image?.fluid 
+  const isFixed = !!image?.fixed 
 
   if (src && isFluid) return  <Img fluid={src} title={alt} {...restProps} />
 

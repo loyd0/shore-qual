@@ -2,24 +2,38 @@ import React from "react"
 import SEO from '../components/SEO';
 import Layout from '../components/layout/Layout';
 import RichText from "../components/rich-text/RichText";
+import CoverImage from '../components/elements/CoverImage';
+import Testimonial from '../components/contentful-elements/Testimonial';
 
-export default function Testimonials({ data}) {
- 
+export default function Testimonials({ data }) {
+
   const { contentfulTestimonialsPage } = data;
-  const { title, header, content } = contentfulTestimonialsPage
+  const { title, header, content, coverPhoto, testimonials } = contentfulTestimonialsPage
 
-
+  const Header = <div>
+    <div className="flex flex-col text-center w-full relative z-40 space-y-6 ">
+      <div className="flex lg:py-32 w-full text-secondary-100 top-0 items-center px-6  text-shadow mx-auto">
+        <div className="flex flex-col text-center w-full relative z-40 space-y-6 ">
+          {header && <h1 className="uppercase text-5xl font-bold ">{header}</h1>}
+          <RichText text={content.json} />
+        </div>
+      </div>
+    </div>
+  </div>
   return <Layout
   >
     <SEO title={title} />
 
-      <div className="flex lg:py-32 min-h-screen w-full text-secondary-100 top-0 items-center px-6  text-shadow max-w-xl mx-auto">
-        <div className="flex flex-col text-center w-full relative z-40 space-y-6 ">
-          {header && <h1 className="text-6xl font-bold ">{header}</h1>}
-        <RichText text={content.json} />
-        </div>
-      </div>
-   
+
+    {coverPhoto ? <CoverImage image={coverPhoto} alt={coverPhoto.title} overlay="bg-gray-900 bg-opacity-20" children={Header} className="-mt-20 pb-px" /> : Header}
+
+
+
+
+
+    <section className="space-y-8 pb-12">
+      { testimonials.map( testimonial => <Testimonial key={testimonial.id} {...testimonial }/>)}
+    </section>
 
 
   </Layout>

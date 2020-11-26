@@ -16,7 +16,7 @@ const Nav = (props) => {
     const Link = (props) => (
         <Linked
             {...props}
-            className={`lg:text-shadow-sm hover:text-secondary-100 ${props.className} ${hasBackground ? "text-secondary-400 lg:text-white" : "text-secondary-400"
+            className={` hover:text-secondary-100 ${props.className} ${hasBackground ? "text-secondary-400 lg:text-white lg:text-shadow-sm" : "text-secondary-400"
                 }`}
         />
     )

@@ -19,10 +19,10 @@ const options = {
     ),
   },
   renderNode: {
-    [BLOCKS.HEADING_1]: (node, children) => <h2>{children}</h2>,
-    [BLOCKS.HEADING_2]: (node, children) => <h3>{children}</h3>,
+    [BLOCKS.HEADING_1]: (node, children) => <h2 className="font-bold">{children}</h2>,
+    [BLOCKS.HEADING_2]: (node, children) => <h3 className="font-bold">{children}</h3>,
     [BLOCKS.HEADING_3]: (node, children) => <h4>{children}</h4>,
-    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-xl mb-8">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg mb-8">{children}</p>,
     [BLOCKS.QUOTE]: (node, children) => <Quote>{children}</Quote>,
     [BLOCKS.HR]: () => <Hr />,
     [BLOCKS.LIST_ITEM]: (node, children) => (

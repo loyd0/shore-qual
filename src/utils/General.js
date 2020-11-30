@@ -1,12 +1,15 @@
-export const convertArrayToObject = (array, key) => {
+export const convertArrayToObject = (array) => {
   const initialValue = {}
   return array.reduce((obj, item) => {
+    if (obj[item]) {
+      return {
+        ...obj,
+        [item]: obj[item] + 1
+      }
+    }
     return {
       ...obj,
-      [item[key]]: {
-        value: "",
-        ...item,
-      },
+      [item]: 1,
     }
   }, initialValue)
 }
@@ -18,19 +21,18 @@ export const encode = (data) => {
     .join("&")
 }
 
-// Custom validation of email function
-export const ValidateEmail = (input) => {
-  // Retrieve the email from previously submitted forms
-  const item = getLocalStorage("email")
-  if (item === input) {
-    // return error message if it exists
-    return "This email address has already been used."
-  } else {
-    return (
-      input &&
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        input
-      )
-    )
-  }
+
+export function slugify(string) {
+  const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'
+  const b = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------'
+  const p = new RegExp(a.split('').join('|'), 'g')
+
+  return string.toString().toLowerCase()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+    .replace(/&/g, '-and-') // Replace & with 'and'
+    .replace(/[^\w\-]+/g, '') // Remove all non-word characters
+    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, '') // Trim - from end of text
 }

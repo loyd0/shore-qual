@@ -4,6 +4,7 @@ import RichText from '../components/rich-text/RichText';
 import SEO from '../components/SEO';
 import SocialLink from '../components/contentful-elements/SocialLink';
 import PrettyLink from '../components/elements/PrettyLink';
+import { graphql } from 'gatsby';
 
 export default function Contact({
   data

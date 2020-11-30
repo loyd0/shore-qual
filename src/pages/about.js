@@ -3,6 +3,7 @@ import Layout from '../components/layout/Layout';
 import SEO from '../components/SEO';
 import RichText from '../components/rich-text/RichText';
 import Image from '../components/elements/Image';
+import { graphql } from 'gatsby';
 
 export default function About({
   data

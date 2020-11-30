@@ -4,6 +4,8 @@ import Layout from '../components/layout/Layout';
 import RichText from "../components/rich-text/RichText";
 import CoverImage from '../components/elements/CoverImage';
 import Testimonial from '../components/contentful-elements/Testimonial';
+import { graphql } from 'gatsby';
+import CTASection from "../components/contentful-elements/CTASection";
 
 export default function Testimonials({ data }) {
 
@@ -35,7 +37,7 @@ export default function Testimonials({ data }) {
       { testimonials.map( testimonial => <Testimonial key={testimonial.id} {...testimonial }/>)}
     </section>
 
-
+<CTASection />
   </Layout>
 }
 

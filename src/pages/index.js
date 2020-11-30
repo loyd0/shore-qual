@@ -34,7 +34,6 @@ const IndexPage = ({ data }) => {
 
   const SiteSections = useBlocks(sections)
 
-  console.log('SiteSections', SiteSections)
 
   return (
     <Layout

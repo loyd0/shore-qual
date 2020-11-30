@@ -53,8 +53,32 @@ fragment BlogPostFragment on ContentfulBlogPost {
   author
   coverImage {
     ...MiniImageFragment
+  }
+}
+
+fragment FullBlogPostFragment on ContentfulBlogPost {
+  id
+  title
+  tags
+  published(formatString: "MMMM DD, YYYY")
+  description {
+    text: description
+  }
+  content {
+    json
+  }
+  
+  author
+  coverImage {
     ...ImageFragment
   }
+}
+
+fragment BlogPostTags on ContentfulBlogPost {
+  tags
+}
+fragment BlogPostDates on ContentfulBlogPost {
+  published(formatString: "YYYY")
 }
 
 `

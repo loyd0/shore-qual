@@ -7,13 +7,13 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { useBlocks } from '../utils/useBlocks';
 import Service from '../components/contentful-elements/Service';
 import Section from '../components/contentful-elements/Section';
+import { graphql } from 'gatsby';
 
 export default function Services({ data }) {
 
   const { contentfulServicesPage } = data;
   const { title, header, coverPhoto, description, services, sections } = contentfulServicesPage
 
-  console.log('Sections', sections)
 
   return <Layout
     background={coverPhoto.fluid || coverPhoto.file.url}

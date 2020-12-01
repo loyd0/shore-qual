@@ -100,7 +100,7 @@ const IndexPage = ({ data }) => {
         className="text-secondary-400" 
         blockClassNames="grid lg:grid-cols-2 gap-6  mx-auto max-w-5xl mt-8 px-4" 
         >
-         <PrettyLink className="justify-center ">See all blog posts</PrettyLink>
+         <PrettyLink className="justify-center mt-8 ">See all blog posts</PrettyLink>
         </Section>
 
 

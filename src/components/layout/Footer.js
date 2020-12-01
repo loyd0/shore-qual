@@ -34,6 +34,7 @@ const Footer = (props) => {
       allContentfulCaseStudy {
         nodes {
           title
+          path: gatsbyPath(filePath: "/case-studies/{ContentfulCaseStudy.title}")
         }
       }
     }
@@ -96,7 +97,7 @@ const Footer = (props) => {
               </li>
               {allContentfulCaseStudy.nodes.map((study, index) => (
                 <li key={study.title + index}>
-                  <Link linkTo="/contact">{study.title}</Link>
+                  <Link linkTo={study.path}>{study.title}</Link>
                 </li>
               ))}
             </ul>

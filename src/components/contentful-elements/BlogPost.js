@@ -2,16 +2,19 @@ import React from 'react'
 import { graphql } from 'gatsby';
 import Image from '../elements/Image';
 import Tag from '../../images/svgs/tag';
+import Linked from '../elements/Linked';
 
 export default function BlogPost({
-  id, title, tags, description, coverImage, published, content
+  id, title, tags, description, coverImage, published, content, path
 }) {
 
   const minutes = content?.fields?.readingTime?.minutes
     return (
+
+      <Linked linkTo={path}>
         <article className="relative h-64 text-white hover:shadow-2xl transition-shadow duration-500 cursor-pointer rounded overflow-hidden ">
            <Image className="absolute z-0 top-0 w-full min-h-full rounded" 
-            image={coverImage} src={coverImage.miniFluid} alt={coverImage.title}/>
+          image={coverImage} src={coverImage.miniFluid} alt={coverImage.title}/>
 
            <div className="absolute z-10 top-0 w-full flex flex-col h-full justify-between text-left p-4 text-shadow-md">
 
@@ -31,6 +34,7 @@ export default function BlogPost({
            </div>
           
         </article>
+        </Linked>
     )
 }
 
@@ -50,7 +54,7 @@ fragment BlogPostFragment on ContentfulBlogPost {
       }
     }
   }
-  
+  path: gatsbyPath(filePath: "/blog/{ContentfulBlogPost.title}")
   author
   coverImage {
     ...MiniImageFragment
@@ -73,6 +77,8 @@ fragment FullBlogPostFragment on ContentfulBlogPost {
   coverImage {
     ...ImageFragment
   }
+  path: gatsbyPath(filePath: "/blog/{ContentfulBlogPost.title}")
+
 }
 
 fragment BlogPostTags on ContentfulBlogPost {

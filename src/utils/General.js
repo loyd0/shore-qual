@@ -20,6 +20,10 @@ export const encode = (data) => {
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&")
 }
+// Encode the form data for URL submission
+export const encodeString = (string) => {
+  return encodeURIComponent(string)
+}
 
 
 export function slugify(string) {

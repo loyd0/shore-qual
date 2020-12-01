@@ -13,10 +13,16 @@ export default function BlogPost({
 
       <Linked linkTo={path}>
         <article className="relative h-64 text-white hover:shadow-2xl transition-shadow duration-500 cursor-pointer rounded overflow-hidden ">
-           <Image className="absolute z-0 top-0 w-full min-h-full rounded" 
-          image={coverImage} src={coverImage.miniFluid} alt={coverImage.title}/>
+           <Image 
+            className="absolute z-0 top-0 w-full min-h-full rounded" 
+            image={coverImage} 
+            src={coverImage.miniFluid} 
+            alt={coverImage.title}
+          />
 
-           <div className="absolute z-10 top-0 w-full flex flex-col h-full justify-between text-left p-4 text-shadow-md">
+          <div className="absolute top-0 w-full min-h-full rounded bg-black opacity-10 z-10" />
+
+           <div className="absolute z-20 top-0 w-full flex flex-col h-full justify-between text-left p-4 text-shadow-md">
 
             <div className="flex justify-between text-base font-bold ">
               <span className="uppercase" >{published}</span>
@@ -25,7 +31,7 @@ export default function BlogPost({
 
             <div>
             <ul className="flex space-x-4 w-full flex-wrap h-8 overflow-hidden">
-              { tags.map( tag => <li className="flex items-center"><Tag className="mr-2"/>{tag}</li>)}
+              { tags.map( tag => <li key={tag} className="flex items-center"><Tag className="mr-2"/>{tag}</li>)}
             </ul>
             <h4 className="text-xl lg:text-4xl truncate font-bold">{title}</h4>
             <p className="truncate">{description.text}</p>
@@ -76,6 +82,9 @@ fragment FullBlogPostFragment on ContentfulBlogPost {
   author
   coverImage {
     ...ImageFragment
+  }
+  similarPosts {
+    ...BlogPostFragment
   }
   path: gatsbyPath(filePath: "/blog/{ContentfulBlogPost.title}")
 

@@ -9,8 +9,9 @@ export default function BlogPost({
 
   const minutes = content?.fields?.readingTime?.minutes
     return (
-        <article className="relative h-64 text-white hover:shadow-2xl transition-shadow duration-500 cursor-pointer rounded ">
-           <Image className="absolute z-0 top-0 w-full h-full rounded" image={coverImage} src={coverImage.miniFluid} alt={coverImage.title}/>
+        <article className="relative h-64 text-white hover:shadow-2xl transition-shadow duration-500 cursor-pointer rounded overflow-hidden ">
+           <Image className="absolute z-0 top-0 w-full min-h-full rounded" 
+            image={coverImage} src={coverImage.miniFluid} alt={coverImage.title}/>
 
            <div className="absolute z-10 top-0 w-full flex flex-col h-full justify-between text-left p-4 text-shadow-md">
 

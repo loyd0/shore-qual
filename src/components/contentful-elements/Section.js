@@ -11,12 +11,13 @@ export default function Section({
   id,
   className,
   blockClassNames,
+  children,
   ...restProps
 }) {
 
   const Blocks = useBlocks(blocks)
 
-  const SectionChildren = () => 
+  const SectionChildren = ({ children }) => 
   <div id={id} className={` flex h-full relative z-front ${className} `} {...restProps}>
     <div className="flex w-full py-12 text-center h-full  ">
 
@@ -32,7 +33,7 @@ export default function Section({
       <div className={blockClassNames}>
       {Blocks && Blocks.map((Block, index) => <Block key={index} />)}
       </div>
-      
+      { children } 
       </div>
     </div>
   </div>
@@ -41,9 +42,9 @@ export default function Section({
     image={coverImage}
     alt={coverImage.title}
   >
-    <SectionChildren />
+    <SectionChildren children={children} />
   </CoverImage> :
-    <SectionChildren />
+    <SectionChildren children={children} />
 }
 
 export const SectionFragment = graphql`

@@ -10,6 +10,7 @@ import Section from '../components/contentful-elements/Section';
 import { useBlocks } from '../utils/useBlocks';
 import Lottie from 'react-lottie';
 import shoreAnimation from '../animations/shore.json'
+import PrettyLink from '../components/elements/PrettyLink';
 
 
 const shoreAnimationOptions = {
@@ -97,8 +98,10 @@ const IndexPage = ({ data }) => {
         {...blogSection} 
         id="blog" 
         className="text-secondary-400" 
-        blockClassNames="grid lg:grid-cols-2 gap-6  mx-auto max-w-6xl mt-8 px-4" 
-        />
+        blockClassNames="grid lg:grid-cols-2 gap-6  mx-auto max-w-5xl mt-8 px-4" 
+        >
+         <PrettyLink className="justify-center ">See all blog posts</PrettyLink>
+        </Section>
 
 
     </Layout>

@@ -18,15 +18,12 @@ export default function Contact({
   >
     <SEO title={title} />
 
-    {/* <div className="relative"> */}
 
 
-      <CurvedFeet className="absolute  w-1/2 transform right-0 top-0 rotate-180" />
+    <CurvedFeet className="absolute w-4/5 md:w-1/2 transform right-0 top-0 rotate-180" />
 
    
     <section className="relative grid md:grid-cols-2 max-w-5xl gap-x-8 mx-auto text-primary px-6 my-24 space-y-12">
-
-
       <div >
         <RichText text={content.json} className="space-y-4" />
 
@@ -61,7 +58,6 @@ export default function Contact({
 
       </form>
     </section>
-    {/* </div> */}
     
   </Layout>
 }

@@ -15,9 +15,9 @@ export default function Testimonials({ data }) {
 
   const Header = <div>
     <div className="flex flex-col text-center w-full relative z-40 space-y-6 ">
-      <div className="flex lg:py-32 w-full text-primary top-0 items-center px-6  text-shadow mx-auto">
+      <div className="flex py-12 lg:py-32 w-full text-primary top-0 items-center px-6  text-shadow mx-auto">
         <div className="flex flex-col text-center w-full relative z-40 space-y-6 ">
-          {header && <h1 className="uppercase text-6xl font-bold ">{header}</h1>}
+          {header && <h1 className="uppercase text-5xl md:text-6xl font-bold ">{header}</h1>}
           <RichText text={content.json} />
         </div>
       </div>
@@ -26,7 +26,7 @@ export default function Testimonials({ data }) {
   return <Layout
   >
 
-<CurvedFeet className="absolute  w-1/2 transform left-0 top-0 rotate-90" />
+<CurvedFeet className="absolute  w-4/5 md:w-1/2 transform left-0 top-0 rotate-90" />
 
     <SEO title={title} />
 

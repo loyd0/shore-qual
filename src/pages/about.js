@@ -4,20 +4,20 @@ import SEO from '../components/SEO';
 import RichText from '../components/rich-text/RichText';
 import Image from '../components/elements/Image';
 import { graphql } from 'gatsby';
+import NotFoundPage from './404';
 
 export default function About({
   data
 }) {
-  const { contentfulAboutPage: { header, title, content, headshot }, map } = data
+  const { contentfulAboutPage: { header, title, content, headshot }, allImageSharp } = data
 
-
-  console.log(map)
+console.log(allImageSharp)
   return <Layout
   >
     <SEO title={title} />
     <section className="relative">
       <div className="absolute top-0 w-full ">
-        <Image className="w-full xl:w-5/6 ml-auto" image={map} alt="Map of Great British Isles " />
+        <Image className="w-full xl:w-5/6 ml-auto" image={allImageSharp.nodes[0]} alt="Map of Great British Isles " />
       </div>
       <div className="relative z-10 ">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2  px-4">
@@ -52,11 +52,14 @@ query AboutPageQuery {
       title
     }
   }
-  map: imageSharp(id: {eq: "c912e435-b72d-57c6-b777-3b63414cafb6"}) {
-    id
-    fluid {
-      ...GatsbyImageSharpFluid_tracedSVG
+  allImageSharp(filter: {original: {src: {regex: "/British_Isles_all/g"}}}) {
+    nodes {
+      id
+      fluid {
+        ...GatsbyImageSharpFluid_tracedSVG
+      }
     }
+   
   }
 }
 `

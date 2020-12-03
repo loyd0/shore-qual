@@ -3,8 +3,6 @@ import { graphql } from 'gatsby';
 import InfiniteCarousel from '../elements/InfiniteCarousel';
 
 export default function CarouselBlock({ slides, title }) {
-
-  console.log(slides)
     return (
       <div className="h-full w-screen py-12 lg:py-24">
         <InfiniteCarousel slides={slides} name={title} />

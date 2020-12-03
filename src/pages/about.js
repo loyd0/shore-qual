@@ -9,6 +9,9 @@ export default function About({
   data
 }) {
   const { contentfulAboutPage: { header, title, content, headshot }, map } = data
+
+
+  console.log(map)
   return <Layout
   >
     <SEO title={title} />
@@ -52,7 +55,7 @@ query AboutPageQuery {
   map: imageSharp(id: {eq: "c912e435-b72d-57c6-b777-3b63414cafb6"}) {
     id
     fluid {
-      ...GatsbyImageSharpFluid_withWebp
+      ...GatsbyImageSharpFluid_tracedSVG
     }
   }
 }

@@ -61,8 +61,6 @@ exports.createPages = async ({ graphql, actions }) => {
         })
     })
 
-
-  console.log(uniqueTagResults)
   uniqueTagResults.forEach((tag,index) => {
         createPage({
             path: `blog/tags/${tag}`,

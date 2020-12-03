@@ -16,7 +16,7 @@ export default function CaseStudy({
   return (
     <Linked linkTo={path}>
       <article data-aos="fade-up" data-aos-duration="1000" className="grid grid-cols-2 rounded">
-        <Image className="rounded-l" image={miniCoverImage} alt={coverImage.title} />
+        <Image className="rounded-l h-full" image={miniCoverImage} alt={coverImage.title} />
         <div className="text-primary p-4 bg-white rounded-r">
           <h5 className="text-base ">{preHeader}</h5>
           <h2 className="font-bold">{title} </h2>

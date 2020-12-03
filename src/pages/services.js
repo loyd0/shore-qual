@@ -28,7 +28,7 @@ export default function Services({ data }) {
         <div className="flex flex-col text-center w-full relative z-40 space-y-6 ">
           {header && <h1 className="text-6xl font-bold ">{header}</h1>}
           <p className="text-lg">{description.text}</p>
-          <AnchorLink to="#intro" className="w-48 mx-auto ">
+          <AnchorLink to="#services" className="w-48 mx-auto ">
             <p className="leading-tight">Scroll down to learn more</p>
             <DownArrow className="mx-auto mt-4 animate-bounce duration-100" />
           </AnchorLink>

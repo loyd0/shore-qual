@@ -61,7 +61,7 @@ export default function BlogPostPage({ data }) {
                         <ShareIcons
                             className="text-secondary-400 space-x-4"
                             iconClassName="hover:text-primary"
-                            link={validWindow.location.href}
+                            link={validWindow?.location?.href}
                             title={title}
                         />
                     </div>

@@ -5,6 +5,7 @@ import SEO from '../components/SEO';
 import SocialLink from '../components/contentful-elements/SocialLink';
 import PrettyLink from '../components/elements/PrettyLink';
 import { graphql } from 'gatsby';
+import CurvedFeet from "../animations/CurvedFeet";
 
 export default function Contact({
   data
@@ -13,8 +14,16 @@ export default function Contact({
   const { contentfulContactPage: { title, content, links } } = data
 
   return <Layout
+  className="relative"
   >
     <SEO title={title} />
+
+    {/* <div className="relative"> */}
+
+
+      <CurvedFeet className="absolute  w-1/2 transform right-0 top-0 rotate-180" />
+
+   
     <section className="relative grid md:grid-cols-2 max-w-5xl gap-x-8 mx-auto text-primary px-6 my-24 space-y-12">
 
 
@@ -52,6 +61,8 @@ export default function Contact({
 
       </form>
     </section>
+    {/* </div> */}
+    
   </Layout>
 }
 

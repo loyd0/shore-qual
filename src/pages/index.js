@@ -10,13 +10,24 @@ import Section from '../components/contentful-elements/Section';
 import { useBlocks } from '../utils/useBlocks';
 import Lottie from 'react-lottie';
 import shoreAnimation from '../animations/shore.json'
+import straightFeet from '../animations/feet-straight.json'
 import PrettyLink from '../components/elements/PrettyLink';
+import CurvedFeet from '../animations/CurvedFeet';
 
 
 const shoreAnimationOptions = {
   loop: true,
-  autoplay: true, 
+  autoplay: true,
   animationData: shoreAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice'
+  }
+};
+
+const straightFeetAnimationOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: straightFeet,
   rendererSettings: {
     preserveAspectRatio: 'xMidYMid slice'
   }
@@ -44,18 +55,18 @@ const IndexPage = ({ data }) => {
 
       <section className="relative">
         <CoverImage
-        style={{ objectPosition: "90%"}}
-        image={coverPhoto} alt={coverPhoto.title} overlay="bg-gray-900 bg-opacity-20" className="-mt-20" >
+          style={{ objectPosition: "90%" }}
+          image={coverPhoto} alt={coverPhoto.title} overlay="bg-gray-900 bg-opacity-20" className="-mt-20" >
           <div className="flex h-screen w-full top-0 items-center px-6 text-white  text-shadow">
             <div className="flex flex-col text-center w-full relative z-front space-y-6 ">
 
               <div className="max-w-2xl mx-auto mt-12">
-              <Lottie 
-                options={shoreAnimationOptions}
-                width={"100%"}
+                <Lottie
+                  options={shoreAnimationOptions}
+                  width={"100%"}
                 />
               </div>
-            
+
               {header && <h2 className="lg:text-5xl font-bold ">{header}</h2>}
               {subHeader && <h4>{subHeader}</h4>}
               {scrollText && <AnchorLink to="#intro" className="w-48 mx-auto ">
@@ -72,36 +83,72 @@ const IndexPage = ({ data }) => {
 
       </section>
 
+      <div className="relative">
 
-      <section 
-        id="intro" 
-        className=" flex lg:flex-row flex-col w-full justify-between h-full min-h-800  py-12 max-w-6xl mx-auto px-4 text-primary mt-32 mb-24">
+        <section
+          id="intro"
+          className=" flex lg:flex-row flex-col w-full justify-between h-full min-h-800  py-12 max-w-6xl mx-auto  text-primary mt-32 mb-24">
 
 
-        <ContentBlock {...introContent[0]} className="lg:w-1/2" />
+          <ContentBlock {...introContent[0]} className="lg:w-1/2 mb-20 md:mb-0 px-4" />
 
-        {/* Add in the footsteps animation here. */}
+          {/* Add in the footsteps animation here. */}
 
-        <ContentBlock {...introContent[1]} className="lg:w-1/2 lg:self-end ml-auto" />
+          <div
 
-      </section>
 
+            className="md:hidden overflow-hidden">
+            <Lottie
+              options={straightFeetAnimationOptions}
+              width={"100%"}
+              style={{
+                transform: "scale(2)"
+              }}
+            />
+          </div>
+
+          <ContentBlock {...introContent[1]} className="lg:w-1/2 mt-20 md:mt-0 lg:self-end ml-auto px-4" />
+
+        </section>
+
+        <div
+
+          // style={{ top: 40 }}
+
+          className="hidden md:block absolute sm:top-40 lg:top-20 xl:top-0 ">
+          <Lottie
+            options={straightFeetAnimationOptions}
+            width={"100%"}
+          />
+        </div>
+
+      </div>
 
       <Section id="testimonials" {...testimonialsSection} className="text-secondary-400" />
 
 
       <section className="grid lg:grid-cols-2 grid-rows-2 grid-cols-1">
-        {SiteSections.map( SiteSection => <SiteSection />)}
+        {SiteSections.map(SiteSection => <SiteSection />)}
       </section>
 
-      <Section 
-        {...blogSection} 
-        id="blog" 
-        className="text-secondary-400" 
-        blockClassNames="grid lg:grid-cols-2 gap-6  mx-auto max-w-5xl mt-8 px-4" 
+
+
+      <div className="relative">
+        <Section
+          {...blogSection}
+          id="blog"
+          className="text-secondary-400 relative z-10"
+          blockClassNames="grid lg:grid-cols-2 gap-6  mx-auto max-w-5xl mt-8 px-4"
         >
-         <PrettyLink className="justify-center mt-8 ">See all blog posts</PrettyLink>
+          <PrettyLink linkTo="/blog" className="justify-center mt-8 hover:text-primary">See all blog posts</PrettyLink>
         </Section>
+
+        <CurvedFeet className="absolute bottom-0 left-0 w-full lg:w-1/2 max-w-xl z-0" />
+      </div>
+
+
+
+
 
 
     </Layout>

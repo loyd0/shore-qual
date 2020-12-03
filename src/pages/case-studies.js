@@ -39,7 +39,7 @@ export default function CaseStudies({
 
 
     <section className="-mt-40 max-w-5xl mx-auto z-40 relative space-y-6 pb-32">
-      { caseStudies && [...caseStudies, ...caseStudies].map(post => <CaseStudy key={post.id} {...post} />)}
+      { caseStudies && caseStudies.map(post => <CaseStudy key={post.id} {...post} />)}
     </section>
 
     <CTASection />

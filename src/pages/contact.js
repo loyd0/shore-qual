@@ -15,7 +15,7 @@ export default function Contact({
   return <Layout
   >
     <SEO title={title} />
-    <section className="relative grid md:grid-cols-2 max-w-5xl mx-auto text-primary px-6 my-24 space-y-12">
+    <section className="relative grid md:grid-cols-2 max-w-5xl gap-x-8 mx-auto text-primary px-6 my-24 space-y-12">
 
 
       <div >

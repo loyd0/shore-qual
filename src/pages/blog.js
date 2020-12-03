@@ -13,11 +13,8 @@ import CTASection from '../components/contentful-elements/CTASection';
 export default function Blog({data}) {
 
   const {
-    preHeader,
-    subHeader,
     title,
-    header,
-    coverImage
+    ...restBlogPage
   } = data.contentfulBlog
 
 
@@ -28,9 +25,26 @@ export default function Blog({data}) {
   const allDates = convertArrayToObject(dates.flatMap(date => date.published))
   return <Layout >
     <SEO title={title} />
+    <BlogCover {...restBlogPage}/>
+ 
+
+{/* Menu */}
+<BlogMenu title={"All posts"} tags={allTags} dates={allDates} />
+
+{/* Posts */}
+<section className="grid lg:grid-cols-2 max-w-5xl mx-auto gap-4 my-12 px-4 lg:px-0">
+{posts && posts.map(post => <BlogPost key={post.id} {...post} />)}
+</section>
 
 
-<CoverImage className="-mt-20" image={coverImage} alt={coverImage.title}>
+
+{/* Pagination */}
+
+  <CTASection />
+  </Layout>
+}
+
+export const BlogCover = ({ coverImage, preHeader, header, subHeader}) => <CoverImage className="-mt-20" image={coverImage} alt={coverImage.title}>
 <section className="z-10 relative text-primary max-w-5xl mx-auto flex items-center min-h-screen   "> 
 
 <div className="max-w-2xl px-4 lg:px-0">
@@ -42,23 +56,6 @@ export default function Blog({data}) {
 </section>
 
 </CoverImage>
- 
-
-{/* Menu */}
-<BlogMenu tags={allTags} dates={allDates} />
-
-{/* Posts */}
-<section className="grid lg:grid-cols-2 max-w-5xl mx-auto gap-4 my-12 px-4 lg:px-0">
-{ posts && posts.map(post => <BlogPost {...post} />)}
-</section>
-
-
-
-{/* Pagination */}
-
-  <CTASection />
-  </Layout>
-}
 
 
 export const BlogQuery = graphql`
@@ -76,14 +73,14 @@ query BlogQuery {
   allContentfulBlogPost {
     posts: nodes {
       ...FullBlogPostFragment
+    }
+    tags: nodes {
+      ...BlogPostTags
+    } 
+    dates: nodes {
+      ...BlogPostDates
+    } 
   }
-  tags: nodes {
-    ...BlogPostTags
-  } 
-  dates: nodes {
-    ...BlogPostDates
-  } 
-}
 }
 
 

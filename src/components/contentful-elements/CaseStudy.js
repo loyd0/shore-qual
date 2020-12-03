@@ -15,7 +15,7 @@ export default function CaseStudy({
 }) {
   return (
     <Linked linkTo={path}>
-      <article className="grid grid-cols-2 rounded">
+      <article data-aos="fade-up" data-aos-duration="1000" className="grid grid-cols-2 rounded">
         <Image className="rounded-l" image={miniCoverImage} alt={coverImage.title} />
         <div className="text-primary p-4 bg-white rounded-r">
           <h5 className="text-base ">{preHeader}</h5>

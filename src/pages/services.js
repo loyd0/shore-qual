@@ -8,6 +8,7 @@ import { useBlocks } from '../utils/useBlocks';
 import Service from '../components/contentful-elements/Service';
 import Section from '../components/contentful-elements/Section';
 import { graphql } from 'gatsby';
+import SpiderDiagram from '../images/svgs/spider-diagram';
 
 export default function Services({ data }) {
 
@@ -40,14 +41,18 @@ export default function Services({ data }) {
     <section id="services">
 
     { services.map((service, index)  => <Service key={service.header + index} reverse={index % 2 === 0} {...service} /> ) }
+    
     </section>
 
-  { sections.map( section => <Section className="mx-auto px-4 max-w-4xl text-primary"  {...section}  ></Section>)}
+      
+    { sections.map( section => <Section className="mx-auto px-4 max-w-4xl text-primary"  {...section}  ></Section>)}
    
 
 
 
-<h4 className="my-12">TO ADD:  SPIDER DIAGRAM</h4>
+    <section className="pb-24 pt-12">
+      <SpiderDiagram className="mx-auto max-w-3xl px-4" />
+    </section>
 
   </Layout>
 }

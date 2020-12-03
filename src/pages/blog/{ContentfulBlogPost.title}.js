@@ -11,11 +11,12 @@ import TweetComment from '../../components/elements/TweetComment';
 import PrettyLink from '../../components/elements/PrettyLink';
 import BlogPost from '../../components/contentful-elements/BlogPost';
 import { isArray } from 'underscore';
+import Linked from '../../components/elements/Linked';
 
 
 export default function BlogPostPage({ data }) {
 
-    const { title, tags, description, coverImage, published, content, author, similarPosts } = data.contentfulBlogPost
+    const { title, tags, description, coverImage, published, content, author, similarPosts, fields } = data.contentfulBlogPost
     const { description: aboutSimon } = data.about
     const { aboutShore  } = data.shore
 
@@ -28,7 +29,7 @@ export default function BlogPostPage({ data }) {
 
     return (
         <Layout background={coverImage}>
-            <SEO title={title} description={description} />
+            <SEO title={title} description={description.text} />
             <Image image={coverImage} alt={coverImage.title} className="-mt-20  h-screen" />
 
             <div className="px-2 md:px-4 lg:px-0 bg-white max-w-5xl lg:mx-auto mx-2" >
@@ -42,7 +43,9 @@ export default function BlogPostPage({ data }) {
                         <h4 className="text-secondary-400 text-xl">{author}</h4>
 
                         <ul className="flex w-3/4 ml-auto space-x-2 self-end justify-end">
-                            {tags && tags.map((tag, index) => <li key={tag + index} className="flex items-center bg-primary text-primary bg-opacity-20 px-3"><Tag className="mr-1" />{tag}</li>)}
+                            {fields?.sorting.sluggedTags && fields?.sorting.sluggedTags.map((tag, index) => <Linked linkTo={`/blog/tags/${tag}`}>
+                                <li key={tag + index} className="flex items-center bg-primary text-primary bg-opacity-20 px-3"><Tag className="mr-1" />{tag}</li>
+                            </Linked>)}
                         </ul>
                     </div>
 

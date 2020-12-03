@@ -5,10 +5,11 @@ import Image from '../elements/Image';
 export default function Testimonial({
   name,
   quote,
-  image
+  image,
+  ...restProps
 }) {
   return (
-    <article className="px-6 lg:px-8  text-primary ">
+    <article {...restProps}  className="px-6 lg:px-8  text-primary ">
       <div className="bg-white lg:grid lg:grid-cols-5 py-4 px-6 lg:py-8 lg:pr-4 rounded max-w-4xl mx-auto">
         <div className="flex flex-row lg:flex-col w-full justify-center lg:col-span-2 items-center mb-4 lg:mb-0 ">
           <Image className="mx-auto rounded-full w-40 h-40 self-center xl:w-56 xl:h-56" image={image} alt={image.title} />

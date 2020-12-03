@@ -1,10 +1,13 @@
 import React from 'react'
 import Tags from '../../images/svgs/tags';
 import Calendar from '../../images/svgs/calendar';
+import Linked from './Linked';
+import { slugify } from '../../utils/General';
 
 export default function BlogMenu({
     tags,
-    dates
+    dates,
+    title
 }) {
 
 
@@ -19,7 +22,7 @@ export default function BlogMenu({
 
 
             <div className="flex items-center ">
-                <h3 className="text-xl leading-tight mb-0 pl-4">Posts from Jan 2020</h3>
+                <h3 className="text-xl leading-tight mb-0 pl-4">{title}</h3>
             </div>
 
             <div className="flex space-x-4 relative pr-4 justify-around">
@@ -29,7 +32,9 @@ export default function BlogMenu({
                     <Tags className="mr-3" /> Posts by Tag
 
                     <ul className={`text-primary rounded absolute ${toggleTagMenu ? "opacity-100 top-10 " : "opacity-0 top-0 pointer-events-none "} transition-all duration-500 p-4 bg-white shadow-xl  text-left`}>
-                        {Object.keys(tags).map(tag => <li className="uppercase hover:text-secondary-400">{tag}<span className="ml-2 float-right">({tags[tag]})</span></li>)}
+                        {Object.keys(tags).map((tag, index) => <Linked key={tag + index} linkTo={`/blog/tags/${slugify(tag)}`}>
+                            <li className="uppercase hover:text-secondary-400">{tag}<span className="ml-2 float-right">({tags[tag]})</span></li>
+                        </Linked>)}
                     </ul >
                        
                 </MenuButton>}
@@ -38,7 +43,9 @@ export default function BlogMenu({
                     <Calendar className="mr-3" /> Posts by Year
 
                     <ul className={`text-primary rounded absolute ${toggleDateMenu ? "opacity-100 top-10 " : "opacity-0 top-0 pointer-events-none "} transition-all duration-500 p-4 bg-white shadow-xl  text-left w-40 lg:right-0`}>
-                        {Object.keys(dates).map(date => <li className="uppercase hover:text-secondary-400">{date}<span className="ml-2 float-right">({dates[date]})</span></li>)}
+                        {Object.keys(dates).map((date, index) => <Linked key={date + index} linkTo={`/blog/year/${date}`}>
+                            <li className="uppercase hover:text-secondary-400">{date}<span className="ml-2 float-right">({dates[date]})</span></li>
+                            </Linked>)}
                     </ul >
             </MenuButton>
             }

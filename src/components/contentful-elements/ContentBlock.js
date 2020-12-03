@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 
 export default function ContentBlock({ header, description, id, icon, ...restProps}) {
     return (
-        <div {...restProps}>
+        <div data-aos="fade-up" data-aos-duration="1000" {...restProps}>
             <h3 className="font-bold">{header}</h3>
             <p className="text-xl leading-loose">{description.text}</p>
         </div>

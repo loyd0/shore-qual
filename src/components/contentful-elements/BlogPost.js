@@ -5,14 +5,14 @@ import Tag from '../../images/svgs/tag';
 import Linked from '../elements/Linked';
 
 export default function BlogPost({
-  id, title, tags, description, coverImage, published, content, path
+  id, title, tags, description, coverImage, published, content, path, fields,
 }) {
 
   const minutes = content?.fields?.readingTime?.minutes
     return (
 
-      <Linked linkTo={path}>
-        <article className="relative h-64 text-white hover:shadow-2xl transition-shadow duration-500 cursor-pointer rounded overflow-hidden ">
+      <Linked linkTo={path} >
+        <article data-aos="fade-up" data-aos-duration="1000" className="relative h-64 text-white hover:shadow-2xl transition-shadow duration-500 cursor-pointer rounded overflow-hidden ">
            <Image 
             className="absolute z-0 top-0 w-full min-h-full rounded" 
             image={coverImage} 
@@ -60,6 +60,12 @@ fragment BlogPostFragment on ContentfulBlogPost {
       }
     }
   }
+  fields {
+    sorting {
+      sluggedTags
+    }
+  }
+  
   path: gatsbyPath(filePath: "/blog/{ContentfulBlogPost.title}")
   author
   coverImage {
@@ -77,6 +83,11 @@ fragment FullBlogPostFragment on ContentfulBlogPost {
   }
   content {
     json
+  }
+  fields {
+    sorting {
+      sluggedTags
+    }
   }
   
   author

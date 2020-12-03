@@ -31,8 +31,8 @@ function SEO({ description, lang, meta, title, image, article, twitterUsername }
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={metaTitle}
+      // titleTemplate={`%s | ${site.siteMetadata.title}`}
     >
       <noscript>Your browser does not support JavaScript! A London List works best with javascript ( and by best only ). </noscript>     
 

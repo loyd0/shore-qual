@@ -75,7 +75,7 @@ const IndexPage = ({ data }) => {
 
       <section 
         id="intro" 
-        className=" flex lg:flex-row flex-col w-full justify-between h-full min-h-800  py-12 max-w-6xl mx-auto px-4 text-primary mt-32">
+        className=" flex lg:flex-row flex-col w-full justify-between h-full min-h-800  py-12 max-w-6xl mx-auto px-4 text-primary mt-32 mb-24">
 
 
         <ContentBlock {...introContent[0]} className="lg:w-1/2" />

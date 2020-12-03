@@ -9,7 +9,7 @@ import RichText from '../../components/rich-text/RichText';
 
 export default function CaseStudyPage({ data }) {
 
-    const { title, coverImage, content } = data.contentfulCaseStudy
+    const { title, coverImage, content, description } = data.contentfulCaseStudy
 
     return (
         <Layout background={coverImage}>

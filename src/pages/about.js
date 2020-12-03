@@ -16,7 +16,7 @@ export default function About({
       <div className="absolute top-0 w-full ">
         <Image className="w-full xl:w-5/6 ml-auto" image={map} alt="Map of Great British Isles " />
       </div>
-      <div className=" ">
+      <div className="relative z-10 ">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2  px-4">
           <article className="my-40">
             <h1 className="uppercase font-bold text-secondary-400 mb-6">{header}</h1>

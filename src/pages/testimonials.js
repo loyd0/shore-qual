@@ -34,7 +34,7 @@ export default function Testimonials({ data }) {
 
 
     <section className="space-y-8 pb-12">
-      { testimonials.map( testimonial => <Testimonial key={testimonial.id} {...testimonial }/>)}
+      { testimonials.map( testimonial => <Testimonial data-aos="fade-up" data-aos-duration="1000"  key={testimonial.id} {...testimonial }/>)}
     </section>
 
 <CTASection />

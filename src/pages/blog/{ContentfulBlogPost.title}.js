@@ -28,7 +28,7 @@ export default function BlogPostPage({ data }) {
 
     return (
         <Layout background={coverImage}>
-            <SEO title={title} />
+            <SEO title={title} description={description} />
             <Image image={coverImage} alt={coverImage.title} className="-mt-20  h-screen" />
 
             <div className="px-2 md:px-4 lg:px-0 bg-white max-w-5xl lg:mx-auto mx-2" >
@@ -38,7 +38,7 @@ export default function BlogPostPage({ data }) {
                     <h5 className="text-secondary-400 font-bold">{published}</h5>
                     <h1 className="mx-auto text-secondary-400 mb-4 lg:mb-12">{title}</h1>
 
-                    <div className="flex justify-between mb-3">
+                    <div className="flex justify-between mb-6">
                         <h4 className="text-secondary-400 text-xl">{author}</h4>
 
                         <ul className="flex w-3/4 ml-auto space-x-2 self-end justify-end">

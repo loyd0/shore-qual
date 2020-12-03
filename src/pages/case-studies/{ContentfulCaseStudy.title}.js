@@ -13,7 +13,7 @@ export default function CaseStudyPage({ data }) {
 
     return (
         <Layout background={coverImage}>
-            <SEO title={title} />
+            <SEO title={title} description={description} />
             <Image image={coverImage} alt={coverImage.title} className="-mt-20  h-screen" />
 
             <div className="px-2 md:px-4 lg:px-6">

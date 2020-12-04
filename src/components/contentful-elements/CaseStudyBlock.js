@@ -9,7 +9,7 @@ export default function CaseStudyBlock({ title, linkText, caseStudies, backgroun
     <BaseSectionBlock backgroundImage={backgroundImage} className="text-primary">
       <h3 className="font-bold mb-8">{title} </h3>
       {[...caseStudies,...caseStudies, ...caseStudies ].map(caseStudy => <CaseStudyPost {...caseStudy}/>)}
-      <PrettyLink className="underline text-xl absolute bottom-0" linkTo="/services" >{linkText}</PrettyLink>
+      <PrettyLink className="underline text-xl absolute bottom-0" linkTo="/case-studies" >{linkText}</PrettyLink>
     </BaseSectionBlock>
   )
 }

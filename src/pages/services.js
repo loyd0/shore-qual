@@ -19,7 +19,7 @@ export default function Services({ data }) {
   return <Layout
     background={coverPhoto.fluid || coverPhoto.file.url}
   >
-    <SEO title={title} />
+    <SEO title={title} description={description.text} />
 
 
     <CoverImage image={coverPhoto} alt={coverPhoto.title} 
@@ -50,7 +50,7 @@ export default function Services({ data }) {
 
 
 
-    <section className="pb-24 pt-12">
+    <section data-aos="fade-up" data-aos-duration="1000" className="pb-24 pt-12">
       <SpiderDiagram className="mx-auto max-w-3xl px-4" />
     </section>
 

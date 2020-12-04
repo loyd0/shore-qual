@@ -9,16 +9,16 @@ export default function CurvedFeet(props) {
         autoplay: true,
         animationData: curvedFeet,
         rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
+          preserveAspectRatio: 'xMidYMid slice'
         }
-    };
+      };
     return (
         <div
-            {...props} >
-            <Lottie
-                options={curvedFeetAnimationOptions}
-                width={"100%"}
-            />
-        </div>
+       {...props} >
+        <Lottie
+          options={curvedFeetAnimationOptions}
+          width={"100%"}
+        />
+      </div>
     )
 }

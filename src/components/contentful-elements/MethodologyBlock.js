@@ -8,7 +8,7 @@ export default function MethodologyBlock({
   description
 }) {
     return (
-        <article className="mt-4 md:mt-0 md:grid  md:grid-cols-4 gap-x-2 lg:gap-4">
+        <article  data-aos="fade-up" data-aos-duration="1000" className="mt-4 md:mt-0 md:grid  md:grid-cols-4 gap-x-2 lg:gap-4">
           <figure className="mb-2 md:mb-0 w-12 h-12 lg:w-24 md:ml-auto lg:h-24 p-4 bg-secondary-100 flex justify-center rounded items-center">
           <Image className="w-6 max-h-8 lg:w-12" image={icon} alt={icon.title}/> 
           </figure>

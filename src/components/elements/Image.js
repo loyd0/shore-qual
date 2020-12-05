@@ -3,7 +3,7 @@ import Img from "gatsby-image"
 import { graphql } from 'gatsby'
 
 export default function Image({ image, src, alt, ...restProps }) {
-  const isFluid = !!image?.fluid 
+  const isFluid = !!image?.fluid || !!image?.miniFluid;
   const isFixed = !!image?.fixed 
 
   if (src && isFluid) return  <Img fluid={src} title={alt} {...restProps} />
@@ -19,7 +19,7 @@ export default function Image({ image, src, alt, ...restProps }) {
 
 export const ImageFragment = graphql`
 fragment ImageFragment on ContentfulAsset {
-  fluid {
+  fluid (maxWidth:1200) {
       ...GatsbyContentfulFluid_withWebp
     }
     file {
@@ -28,7 +28,7 @@ fragment ImageFragment on ContentfulAsset {
     title
 }
 fragment MiniImageFragment on ContentfulAsset {
-  miniFluid: fluid(maxWidth: 200) {
+  fluid(maxWidth: 200) {
       ...GatsbyContentfulFluid_withWebp
     }
     file {

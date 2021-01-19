@@ -35,9 +35,10 @@ const Nav = (props) => {
                     <li>
                         <Link linkTo="/testimonials">Testimonials</Link>
                     </li>
-                    <li>
+                    {/* Removed whilst Simon Determines what he wants to use here */}
+                    {/* <li>
                         <Link linkTo="/case-studies">Case Studies</Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link linkTo="/about">About</Link>
                     </li>
@@ -111,9 +112,9 @@ const Nav = (props) => {
                     <li>
                         <Link linkTo="/testimonials">Testimonials</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link linkTo="/case-studies">Case Studies</Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link linkTo="/about">About</Link>
                     </li>

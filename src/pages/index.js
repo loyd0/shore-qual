@@ -124,7 +124,7 @@ const IndexPage = ({ data }) => {
 
       </div>
 
-      <Section id="testimonials" {...testimonialsSection} className="text-secondary-400" />
+      <Section id="testimonials" {...testimonialsSection} className="text-secondary-400 overflow-x-hidden" />
 
 
       <section className="grid lg:grid-cols-2 grid-rows-2 grid-cols-1">

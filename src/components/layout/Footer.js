@@ -31,12 +31,13 @@ const Footer = (props) => {
           }
         }
       }
-      allContentfulCaseStudy {
-        nodes {
-          title
-          path: gatsbyPath(filePath: "/case-studies/{ContentfulCaseStudy.title}")
-        }
-      }
+      # Removed whilst determining what to add here instead
+      # allContentfulCaseStudy {
+      #   nodes {
+      #     title
+      #     path: gatsbyPath(filePath: "/case-studies/{ContentfulCaseStudy.title}")
+      #   }
+      # }
     }
   `)
 
@@ -80,9 +81,10 @@ const Footer = (props) => {
             <li>
               <Link linkTo="/services">Services</Link>
             </li>
-            <li>
+            {/* Removed whilst Simon Determines what he wants to do here */}
+            {/* <li>
               <Link linkTo="/case-studies">Case Studies</Link>
-            </li>
+            </li> */}
             <li>
               <Link linkTo="/about">About</Link>
             </li>
@@ -90,7 +92,9 @@ const Footer = (props) => {
               <Link linkTo="/contact">Contact</Link>
             </li>
           </ul>
-          {allContentfulCaseStudy.nodes && (
+
+          {/* Removed whilst Simon determines what to add here */}
+          {/* {allContentfulCaseStudy.nodes && (
             <ul className="text-primary lg:col-span-2">
               <li>
                 <h5 className="text-secondary-400">CASE STUDIES</h5>
@@ -101,7 +105,7 @@ const Footer = (props) => {
                 </li>
               ))}
             </ul>
-          )}
+          )} */}
           <ul className="text-primary lg:col-span-2">
             <li>
               <h5 className="text-secondary-400">BLOG</h5>

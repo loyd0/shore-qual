@@ -43,6 +43,7 @@ fragment CaseStudyFragment on ContentfulCaseStudy {
   content {
     json
   }
-  path: gatsbyPath(filePath: "/case-studies/{ContentfulCaseStudy.title}")
+  # Removed to prevent blocking renders
+  # path: gatsbyPath(filePath: "/case-studies/{ContentfulCaseStudy.title}")
 }
 `

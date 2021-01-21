@@ -177,7 +177,7 @@ query IndexPageQuery {
     }
     sections {
       ...AboutBlockFragment
-      ...CaseStudyBlockFragment
+      ...ShoreBeliefsBlockFragment
       ...ServiceBlockFragment
       ...TwitterBlockFragment
     }

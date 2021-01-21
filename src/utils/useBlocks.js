@@ -10,11 +10,13 @@ import BlogPost from '../components/contentful-elements/BlogPost';
 import Link from '../components/contentful-elements/Link';
 import Service from '../components/contentful-elements/Service';
 import TwoColumnList from '../components/contentful-elements/TwoColumnList';
+import ShoreBeliefsBlock from '../components/contentful-elements/ShoreBeliefsBlock';
 
 const blocks = {
     ContentfulContentBlock: ContentBlock,
     ContentfulCarouselBlock: CarouselBlock,
     ContentfulCaseStudyBlock: CaseStudyBlock,
+    ContentfulShoreBeliefsBlock: ShoreBeliefsBlock,
     ContentfulMethodologyBlock: MethodologyBlock,
     ContentfulServiceBlock: ServiceBlock,
     ContentfulTwitterBlock: TwitterBlock,

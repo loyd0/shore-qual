@@ -28,7 +28,7 @@ export default function TwitterBlock({ title, linkText, backgroundImage }) {
           }}
           ref={ref}
           options={{
-            height: '420',
+            height: '600',
             theme: "dark",
             dnt: true,
             chrome: "transparent noheader noborders nofooter noscrollbar",

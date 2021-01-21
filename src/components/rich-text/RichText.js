@@ -5,6 +5,23 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { RichInlineImage, RichInlinePost, Hr, Quote } from "./Components"
 import Linked from '../elements/Linked';
 
+const createBreakFromString = (text) => {
+  const content = text.split(/\n/)
+  return content.flatMap((text, index) =>
+    index > 0 && index < content.length ? [<br />, text] : text
+  )
+}
+
+const hasBreak = (string) => {
+  if (typeof string !== 'string') return false
+  const regex = RegExp('\n')
+  const hasBreak = regex.test(string)
+  return hasBreak
+}
+
+
+
+
 const options = {
   renderMark: {
     [MARKS.BOLD]: (text) => <span className="font-bold">{text}</span>,
@@ -22,7 +39,12 @@ const options = {
     [BLOCKS.HEADING_1]: (node, children) => <h2 className="font-bold">{children}</h2>,
     [BLOCKS.HEADING_2]: (node, children) => <h3 className="font-bold">{children}</h3>,
     [BLOCKS.HEADING_3]: (node, children) => <h4>{children}</h4>,
-    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg mb-8">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (node, children) => { 
+
+     return <p className="text-lg mb-8">{
+        children.map(child => hasBreak(child) ? createBreakFromString(child) : child)
+      }</p>
+     },
     [BLOCKS.QUOTE]: (node, children) => <Quote>{children}</Quote>,
     [BLOCKS.HR]: () => <Hr />,
     [BLOCKS.LIST_ITEM]: (node, children) => (

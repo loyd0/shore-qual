@@ -4,7 +4,6 @@ import SEO from '../components/SEO';
 import CoverImage from '../components/elements/CoverImage';
 import DownArrow from '../images/svgs/down-arrow';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
-import { useBlocks } from '../utils/useBlocks';
 import Service from '../components/contentful-elements/Service';
 import Section from '../components/contentful-elements/Section';
 import { graphql } from 'gatsby';

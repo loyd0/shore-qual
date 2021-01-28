@@ -8,7 +8,6 @@ import TwitterBlock from '../components/contentful-elements/TwitterBlock';
 import AboutBlock from '../components/contentful-elements/AboutBlock';
 import BlogPost from '../components/contentful-elements/BlogPost';
 import Link from '../components/contentful-elements/Link';
-import Service from '../components/contentful-elements/Service';
 import TwoColumnList from '../components/contentful-elements/TwoColumnList';
 import ShoreBeliefsBlock from '../components/contentful-elements/ShoreBeliefsBlock';
 

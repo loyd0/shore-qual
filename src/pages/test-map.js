@@ -8,17 +8,18 @@ import { motion } from "framer-motion"
 import Pointer from '../images/svgs/pointer';
 import Location from '../data/locations'
 
-export default function About({
-  data
+
+export default function TestMap({
+    data
 }) {
-  const { contentfulAboutPage: { header, title, content, headshot }, allImageSharp } = data
+    const { allImageSharp } = data
 
-
-  const [animating, setAnimating] = React.useState(false)
+    const [animating, setAnimating] = React.useState(false)
 
 
     const container = {
         hidden: { opacity: 1 },
+
         show: {
             opacity: 1,
             transition: {
@@ -27,6 +28,7 @@ export default function About({
             },
         },
         onAnimationComplete: () => console.log("0"),
+
     }
 
     const siteAnimation = {
@@ -44,17 +46,18 @@ export default function About({
         onAnimationComplete: () => console.log("1"),
     }
 
-  return <Layout
-  >
-    <SEO title={title} />
-    <section className="relative">
-      <div className="absolute top-0 w-full ">
-        <Image className="w-full xl:w-5/6 ml-auto" image={allImageSharp.nodes[0]} alt="Map of Great British Isles " />
-        <motion.div
+    return <Layout
+    >
+        <section className="relative" style={{ height: "300vh" }}>
+            <div className="absolute top-0 w-full max-w-screen-xl">
+                <Image className="w-full xl:w-5/6 ml-auto" image={allImageSharp.nodes[0]} alt="Map of Great British Isles " />
+
+
+                <motion.div
                     variants={container}
                     initial="hidden"
                     animate="show"
-                    onAnimationComplete={() => setAnimating(!animating)}
+                    onAnimationComplete={() => console.log("2") && setAnimating(!animating)}
 
                 >
                     {
@@ -68,66 +71,41 @@ export default function About({
                     })
                     }
                 </motion.div>
-      </div>
-      <div className="relative z-10 ">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2  px-4">
-          <article className="my-40">
-            <h1 className="uppercase font-bold text-secondary-400 mb-6">{header}</h1>
-            <RichText text={content.json} className="text-primary" />
-            <Image image={headshot} alt={headshot.title} />
-          </article>
-        </div>
-
-      </div>
-    </section>
-  </Layout>
+            </div>
+        </section>
+    </Layout>
 }
 
 const InfoBox = ({ header, description }) => (
-  <div className="p-2 bg-white w-48 rounded-md shadow-xl relative z-10">
-      <h4 className="text-xs font-bold">{header}</h4>
-      <p className="leading-tight text-xs">{description}</p>
-  </div>
+    <div className="p-2 bg-white w-48 rounded-md shadow-xl relative z-10">
+        <h4 className="text-xs font-bold">{header}</h4>
+        <p className="leading-tight text-xs">{description}</p>
+    </div>
 )
 
 const MapLocation = ({ variants, header, description, location, animating }) =>
-  <motion.div
-      variants={variants}
-      animate={animating ? "show" : null}
-      style={location}
-      onAnimationComplete={() => console.log("3")}
-      className="absolute">
-      <InfoBox
-          header={header}
-          description={description}
-      />
+    <motion.div
+        variants={variants}
+        animate={animating ? "show" : null}
+        style={location}
+        onAnimationComplete={() => console.log("3")}
+        className="absolute">
+        <InfoBox
+            header={header}
+            description={description}
+        />
 
-      <div className="w-full ">
-          <Pointer className="w-full -mt-2" />
-      </div>
-
-
-  </motion.div>
+        <div className="w-full ">
+            <Pointer className="w-full -mt-2" />
+        </div>
 
 
-export const AboutPageQuery = graphql`
-query AboutPageQuery {
-  contentfulAboutPage {
-    title
-    header
-    content {
-      json
-    }
-    headshot {
-      fluid(maxWidth: 400) {
-      ...GatsbyContentfulFluid_withWebp
-      }
-      file {
-        url
-      }
-      title
-    }
-  }
+    </motion.div>
+
+
+export const TestMapQuery = graphql`
+query TestMapQuery {
+ 
   allImageSharp(filter: {original: {src: {regex: "/British_Isles_all/g"}}}) {
     nodes {
       id

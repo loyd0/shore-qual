@@ -1,9 +1,8 @@
 import Slider from "react-slick";
 import React from 'react'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from './Image';
 import RightChevron from '../../images/svgs/right-chevron';
 import LeftChevron from '../../images/svgs/left-chevron';
 import Testimonial from "../contentful-elements/Testimonial";

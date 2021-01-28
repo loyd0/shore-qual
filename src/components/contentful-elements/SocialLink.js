@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby';
-import Link from './Link';
 import Image from '../elements/Image';
 import Linked from '../elements/Linked';
 

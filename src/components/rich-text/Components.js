@@ -99,9 +99,9 @@ export const RichInlineImage = ({ image, children, alt, ...props }) => {
 
 export const RichInlinePost = ({ node, children }) => {
   const { fields } = node.data.target
-  const title = fields.title["en-US"]
-  const subtitle = fields.subtitle["en-US"]
-  const slug = `/posts/${fields.slug["en-US"]}`
+  // const title = fields.title["en-US"]
+  // const subtitle = fields.subtitle["en-US"]
+  // const slug = `/posts/${fields.slug["en-US"]}`
   const imageFields = fields.coverImage
     ? fields.coverImage["en-US"].fields
     : false
@@ -109,18 +109,18 @@ export const RichInlinePost = ({ node, children }) => {
   if (imageFields) {
     const image = imageFields.file["en-US"]
     const width = image.details.image.width
-    const fluid = {
-      aspectRatio: width / image.details.image.height,
-      src: image.url + "?w=600&q=80",
-      srcSet: ` 
-                ${image.url}?w=${width / 4}&&q=80 ${width / 4}w,
-                ${image.url}?w=${width / 2}&&q=80 ${width / 2}w,
-                ${image.url}?w=${width}&&q=80 ${width}w,
-                ${image.url}?w=${width * 1.5}&&q=80 ${width * 1.5}w,
-                ${image.url}?w=1000&&q=80 1000w,
-            `,
-      sizes: "(max-width: 600px) 100vw, 600px",
-    }
+    // const fluid = {
+    //   aspectRatio: width / image.details.image.height,
+    //   src: image.url + "?w=600&q=80",
+    //   srcSet: ` 
+    //             ${image.url}?w=${width / 4}&&q=80 ${width / 4}w,
+    //             ${image.url}?w=${width / 2}&&q=80 ${width / 2}w,
+    //             ${image.url}?w=${width}&&q=80 ${width}w,
+    //             ${image.url}?w=${width * 1.5}&&q=80 ${width * 1.5}w,
+    //             ${image.url}?w=1000&&q=80 1000w,
+    //         `,
+    //   sizes: "(max-width: 600px) 100vw, 600px",
+    // }
     return (
       <div className="px-4 md:px-12 max-w-4xl mx-auto">
         {/* <PostCard

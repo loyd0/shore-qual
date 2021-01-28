@@ -16,7 +16,9 @@ import Linked from '../../components/elements/Linked';
 
 export default function BlogPostPage({ data }) {
 
-    const { title, tags, description, coverImage, published, content, author, similarPosts, fields } = data.contentfulBlogPost
+    const { title, 
+        // tags, 
+        description, coverImage, published, content, author, similarPosts, fields } = data.contentfulBlogPost
     const { description: aboutSimon } = data.about
     const { aboutShore  } = data.shore
 

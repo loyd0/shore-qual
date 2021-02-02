@@ -48,6 +48,7 @@ export default function About({
   >
     <SEO title={title} />
     <section className="relative">
+      <div className="relative max-w-screen-xl mx-auto ">
       <div className="absolute top-0 w-full max-w-screen-xl mx-auto ">
         <Image className="w-full xl:w-5/6 ml-auto" image={allImageSharp.nodes[0]} alt="Map of Great British Isles " />
         <motion.div
@@ -69,12 +70,13 @@ export default function About({
           }
         </motion.div>
       </div>
+      </div>
       <div className="relative z-10 ">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2  px-4">
           <article className="my-40">
             <h1 className="uppercase font-bold text-secondary-400 mb-6">{header}</h1>
             <RichText text={content.json} className="text-primary" />
-            <Image image={headshot} alt={headshot.title} />
+            <Image className="max-w-xs" image={headshot} alt={headshot.title} />
           </article>
         </div>
 

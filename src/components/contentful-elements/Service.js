@@ -13,7 +13,7 @@ export default function Service({
 }) {
     return (
         <article className="grid grid-rows-1  lg:grid-cols-2 text-primary ">
-            <div className={`${!reverse ? "order-2" : "order-2 lg:order-none"}    px-4 py-4 flex flex-col h-full justify-center max-w-2xl mx-auto`}>
+            <div className={`${!reverse ? "order-2" : "order-2 lg:order-none"}    px-4 sm:px-8 py-4 flex flex-col h-full justify-center max-w-2xl mx-auto`}>
               <Image className="w-32 mb-8" image={icon} alt={icon.title} />
               <h3 className="font-bold mb-2 ">{header}</h3>
               <RichText text={description.json}/>

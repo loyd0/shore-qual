@@ -20,14 +20,13 @@ export default function Services({ data }) {
   >
     <SEO title={title} description={description.text} />
 
-
     <CoverImage image={coverPhoto} alt={coverPhoto.title} 
     overlay="bg-gray-900 bg-opacity-20" className="-mt-20 pb-px" >
-      <div className="flex lg:py-32 min-h-screen w-full top-0 items-center px-6 text-white  text-shadow max-w-xl mx-auto">
+      <div className="flex lg:py-32 min-h-screen w-full top-0 items-center px-6 text-white  text-shadow max-w-5xl mx-auto">
         <div className="flex flex-col text-center w-full relative z-40 space-y-6 ">
           {header && <h1 className="text-6xl font-bold ">{header}</h1>}
           <p className="text-lg">{description.text}</p>
-          <AnchorLink to="#services" className="w-48 mx-auto ">
+          <AnchorLink to="#services" className="w-54 mx-auto ">
             <p className="leading-tight">Scroll down to learn more</p>
             <DownArrow className="mx-auto mt-4 animate-bounce duration-100" />
           </AnchorLink>
@@ -46,12 +45,12 @@ export default function Services({ data }) {
       
     { sections.map( section => <Section className="mx-auto px-4 max-w-4xl text-primary"  {...section}  ></Section>)}
    
-
-
-
+      <div className="py-12"></div>
+{/* Removed potentially changing to animated at a later date */}
+{/* 
     <section data-aos="fade-up" data-aos-duration="1000" className="pb-24 pt-12">
       <SpiderDiagram className="mx-auto max-w-3xl px-4" />
-    </section>
+    </section> */}
 
   </Layout>
 }

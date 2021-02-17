@@ -46,7 +46,6 @@ const IndexPage = ({ data }) => {
 
   const SiteSections = useBlocks(sections)
 
-  console.log(SiteSections)
 
   return (
     <Layout
@@ -59,7 +58,7 @@ const IndexPage = ({ data }) => {
           style={{ objectPosition: "90%" }}
           image={coverPhoto} alt={coverPhoto.title} overlay="bg-gray-900 bg-opacity-20" className="-mt-20" >
           <div className="flex h-screen w-full top-0 items-center px-6 text-white  text-shadow">
-            <div className="flex flex-col text-center w-full relative z-front space-y-6 ">
+            <div className="flex flex-col text-center w-full relative z-30 space-y-6 ">
 
               <div className="max-w-2xl mx-auto mt-12">
                 <Lottie

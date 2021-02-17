@@ -66,7 +66,7 @@ const Nav = (props) => {
 
             {/* Mobile Nav */}
             <div
-                className="lg:hidden text-black w-full bg-secondary-100  transition-all duration-700 absolute z-20 top-0 shadow-xl"
+                className="lg:hidden text-black w-full bg-secondary-100  transition-all duration-700 absolute z-40 top-0 shadow-xl"
                 style={{
                     height: "100vh",
                     marginTop: menuOpen ? "10vh" : "-100vh",
@@ -76,7 +76,7 @@ const Nav = (props) => {
             />
 
             <div
-                className="lg:hidden text-black w-full bg-primary transition-all duration-700 absolute z-20 top-0 shadow-xl"
+                className="lg:hidden text-black w-full bg-primary transition-all duration-700 absolute z-40 top-0 shadow-xl"
                 style={{
                     height: "100vh",
                     marginTop: menuOpen ? "10vh" : "-100vh",

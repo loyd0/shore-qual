@@ -47,7 +47,7 @@ export default function InfiniteCarousel({ name, slides = [], images = [] }) {
     return (
         <div id="infinite-slider"
             className={`relative`}>
-            <Slider {...settings} className="" >
+            <Slider {...settings} className="overflow-x-hidden" >
                 {slides && slides.map((slide, index) => 
                     <Testimonial key={slide.name + index} {...slide} />
                 )}

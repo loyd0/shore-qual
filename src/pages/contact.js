@@ -28,7 +28,7 @@ export default function Contact({
         <RichText text={content.json} className="space-y-4" />
 
         <div className="mt-12 ">
-          {links.map(link => <SocialLink {...link} />)}
+          {links.map((link, key) => <SocialLink key={key} {...link} />)}
         </div>
       </div>
 
@@ -52,7 +52,7 @@ export default function Contact({
           <textarea rows="4" className={inputClasses} type="text" name="message" />
         </div>
         <div className="flex flex-col">
-        <button type="submit"><PrettyLink className="hover:text-secondary-400">Send enquiry</PrettyLink></button>
+        <button type="submit"><PrettyLink linkTo="?" className="hover:text-secondary-400">Send enquiry</PrettyLink></button>
         </div>
 
 

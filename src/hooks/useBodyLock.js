@@ -3,6 +3,6 @@ export default function UseBodyLock(lock) {
   if (lock && awaitDocument) {
     awaitDocument.body.style.overflow = "hidden"
   } else if (awaitDocument) {
-    awaitDocument.body.style.overflow = "scroll"
+    awaitDocument.body.style.overflow = "auto"
   }
 }

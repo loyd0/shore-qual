@@ -46,7 +46,7 @@ const Nav = (props) => {
                         <Link linkTo="/contact">Contact</Link>
                     </li>
                     <li style={{ marginLeft: "auto" }}>
-                        <Link className="" linkTo="/blog">
+                        <Link className=" px-8 py-2 rounded bg-primary text-secondary-100" linkTo="/blog">
                             Blog
                         </Link>
                     </li>
@@ -56,7 +56,9 @@ const Nav = (props) => {
             </nav>
 
             <div className="lg:hidden relative py-4 px-6 flex justify-between text-secondary-400 hover:text-secondary-100 z-20">
+            <Linked linkTo="/">
                 <Logo />
+                </Linked>
                 <button onClick={() => setMenuOpen(!menuOpen)}>
                     <Burger />
                 </button>

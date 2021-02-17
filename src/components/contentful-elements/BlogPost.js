@@ -12,7 +12,7 @@ export default function BlogPost({
     return (
 
       <Linked linkTo={path} >
-        <article data-aos="fade-up" data-aos-duration="1000" className="relative h-64 text-white hover:shadow-2xl transition-shadow duration-500 cursor-pointer rounded overflow-hidden ">
+        <article data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" className="relative h-64 text-white hover:shadow-2xl transition-shadow duration-500 cursor-pointer rounded overflow-hidden ">
            <Image 
             className="absolute z-0 top-0 w-full min-h-full rounded" 
             image={coverImage}  

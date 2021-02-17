@@ -1,13 +1,13 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
 const { uniq } = require("underscore")
 
 
 
 // Create the year field so that it can be filtered by in blog.template.js
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = ({ node, actions }) => {
     const { createNodeField } = actions
     if (node.internal.type === `ContentfulBlogPost`) {
+        // add custom fields to content type in formate wanted
         createNodeField({
             node,
             name: `sorting`,
@@ -24,19 +24,11 @@ exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
     const result = await graphql(`
     query BlogPostYears {
-        years: allContentfulBlogPost {
+        posts: allContentfulBlogPost {
             nodes {
                 fields {
                     sorting {
                         year
-                    }
-                }
-            }
-        }
-        tags: allContentfulBlogPost {
-            nodes {
-                fields {
-                    sorting {
                         sluggedTags
                     }
                 }
@@ -46,8 +38,27 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
 
-  const uniqueYearResults = uniq(result.data.years.nodes.map(({fields}) => fields.sorting.year))
-  const uniqueTagResults = uniq(result.data.tags.nodes.flatMap(({ fields }) => fields.sorting.sluggedTags))
+  const uniqueYearResults = uniq(result.data.posts.nodes.map(({fields}) => fields.sorting.year))
+  const uniqueTagResults = uniq(result.data.posts.nodes.flatMap(({ fields }) => fields.sorting.sluggedTags))
+
+
+  const posts = result.data.posts.nodes
+  // set how many per page
+  const postsPerPage = 8
+  const numPages = Math.ceil(posts.length / postsPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+      component: path.resolve("./src/templates/blog-list.template.js"),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+
 
   uniqueYearResults.forEach((year) => {
         createPage({

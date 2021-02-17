@@ -59,8 +59,9 @@ export default function About({
           className="hidden md:block"
         >
           {
-            Location.sort(() => Math.random() - 0.5).map(({ location, header, description }) => {
+            Location.sort(() => Math.random() - 0.5).map(({ location, header, description }, index) => {
               return <MapLocation
+                key={header + index}
                 location={{ ...location }}
                 variants={siteAnimation}
                 header={header}
@@ -82,6 +83,8 @@ export default function About({
 
       </div>
     </section>
+
+    <div className="lg:py-40 xl:py-32"></div>
   </Layout>
 }
 

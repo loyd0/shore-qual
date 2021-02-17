@@ -46,6 +46,7 @@ const IndexPage = ({ data }) => {
 
   const SiteSections = useBlocks(sections)
 
+  console.log(SiteSections)
 
   return (
     <Layout
@@ -91,13 +92,7 @@ const IndexPage = ({ data }) => {
 
 
           <ContentBlock {...introContent[0]} className="lg:w-1/2 mb-20 md:mb-0 px-4" />
-
-          {/* Add in the footsteps animation here. */}
-
-          <div
-
-
-            className="md:hidden overflow-hidden">
+          <div className="md:hidden overflow-hidden">
             <Lottie
               options={straightFeetAnimationOptions}
               width={"100%"}
@@ -115,7 +110,7 @@ const IndexPage = ({ data }) => {
 
           // style={{ top: 40 }}
 
-          className="hidden md:block absolute sm:top-40 lg:top-20 xl:top-0 ">
+          className="hidden md:block absolute sm:top-40 lg:top-20 xl:top-0 overflow-hidden">
           <Lottie
             options={straightFeetAnimationOptions}
             width={"100%"}
@@ -128,7 +123,7 @@ const IndexPage = ({ data }) => {
 
 
       <section className="grid lg:grid-cols-2 grid-rows-2 grid-cols-1">
-        {SiteSections.map(SiteSection => <SiteSection />)}
+        {SiteSections.map((SiteSection, index) => <SiteSection key={index} />)}
       </section>
 
 

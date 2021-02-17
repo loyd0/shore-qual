@@ -31,10 +31,10 @@ export default function CaseStudyPage({ data }) {
 
 }
 
-export const CaseStudyPageQuery = graphql`
-  query ($id: String) {
-    contentfulCaseStudy(id: { eq: $id }) {
-        ...CaseStudyFragment
-    }
-  }
-`
+// export const CaseStudyPageQuery = graphql`
+//   query ($id: String) {
+//     contentfulCaseStudy(id: { eq: $id }) {
+//         ...CaseStudyFragment
+//     }
+//   }
+// `

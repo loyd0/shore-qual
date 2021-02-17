@@ -8,6 +8,7 @@ import Service from '../components/contentful-elements/Service';
 import Section from '../components/contentful-elements/Section';
 import { graphql } from 'gatsby';
 import SpiderDiagram from '../images/svgs/spider-diagram';
+import { slugify } from "../utils/General";
 
 export default function Services({ data }) {
 
@@ -38,14 +39,14 @@ export default function Services({ data }) {
 
     <section id="services">
 
-    { services.map((service, index)  => <Service key={service.header + index} reverse={index % 2 === 0} {...service} /> ) }
+    { services.map((service, index)  => <Service id={slugify(service.header)} key={service.header + index} reverse={index % 2 === 0} {...service} /> ) }
     
     </section>
 
       
     { sections.map( section => <Section className="mx-auto px-4 max-w-4xl text-primary"  {...section}  ></Section>)}
    
-      <div className="py-12"></div>
+
 {/* Removed potentially changing to animated at a later date */}
 {/* 
     <section data-aos="fade-up" data-aos-duration="1000" className="pb-24 pt-12">

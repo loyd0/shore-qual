@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from '../components/layout/Layout';
 import { graphql } from 'gatsby';
-import { BlogCover } from '../pages/blog';
 import SEO from '../components/SEO';
 import CTASection from '../components/contentful-elements/CTASection';
 import BlogMenu from '../components/elements/BlogMenu';
 import BlogPost from '../components/contentful-elements/BlogPost';
 import { convertArrayToObject } from '../utils/General';
+import { BlogCover } from './blog-list.template';
 
 export default function BlogTemplate({ data, pageContext }) {
 

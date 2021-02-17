@@ -7,10 +7,10 @@ import RichText from '../rich-text/RichText';
 
 export default function ShoreBeliefsBlock({ header, linkText, body, backgroundImage}) {
   return (
-    <BaseSectionBlock backgroundImage={backgroundImage} className="text-primary">
+    <BaseSectionBlock bgImage={backgroundImage} className="text-primary">
       <h3 className="font-bold mb-8">{header} </h3>
       <RichText text={body.text} />
-      <PrettyLink className="underline text-xl absolute bottom-0" linkTo="/case-studies" >{linkText}</PrettyLink>
+      <PrettyLink className="underline text-xl absolute bottom-0" linkTo="/contact" >{linkText}</PrettyLink>
     </BaseSectionBlock>
   )
 }

@@ -14,8 +14,7 @@ export default function TwitterBlock({ title, linkText, backgroundImage }) {
     <CoverImage image={backgroundImage} alt={backgroundImage.title}>
       <BaseSectionBlock 
         className="z-front relative text-white overflow-hidden" 
-        bgImage={true} 
-        backgroundImage={backgroundImage}
+        bgImage={backgroundImage} 
       >
         <h3 className="mb-8">{title} </h3>
 

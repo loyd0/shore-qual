@@ -9,7 +9,6 @@ const Linked = ({ linkTo, children, style, className }) => {
   const outward = regex.test(linkTo)
   const mail = mailRegex.test(linkTo)
   const tel = phoneRegex.test(linkTo)
-console.log(linkTo)
   if (mail || tel) {
     return (
       <a href={linkTo} style={style} className={className}>

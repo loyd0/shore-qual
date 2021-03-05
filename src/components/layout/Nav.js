@@ -46,9 +46,9 @@ const Nav = (props) => {
                         <Link linkTo="/contact">Contact</Link>
                     </li>
                     <li style={{ marginLeft: "auto" }}>
-                        <Link className=" px-8 py-2 rounded bg-primary text-secondary-100" linkTo="/blog">
+                        <Linked className=" px-8 py-2 rounded bg-primary text-white hover:text-secondary-100" linkTo="/blog">
                             Blog
-                        </Link>
+                        </Linked>
                     </li>
                 </ul>
 
@@ -124,7 +124,7 @@ const Nav = (props) => {
                         <Link linkTo="/contact">Contact</Link>
                     </li>
                     <li >
-                        <Link className="" linkTo="/blog">
+                        <Link linkTo="/blog">
                             Blog
                         </Link>
                     </li>

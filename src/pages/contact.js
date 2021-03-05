@@ -37,19 +37,22 @@ export default function Contact({
 
 
 
-      <form className="bg-white rounded p-6 space-y-4 placeholder-primary" data-netlify="true" name="contact" action="#" method="POST"  >
+      <form className="bg-white rounded p-6 space-y-4 placeholder-primary" data-netlify="true" name="contact" method="POST"  >
         <input type="hidden" name="form-name" value="contact" />
         <p class="hidden">
           <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
         </p>
-        {!submitted ? <>
+        {submitted &&    
+   <div className="flex items-center">
+          <h3>Thank you for getting in touch, I will respond shortly.</h3>
+        </div> }
           <div className="flex flex-col placeholder-primary">
             <label htmlFor="full_name">Name</label>
-            <input name="full_name" id="full_name" autocomplete="name"  className={inputClasses} type="text" placeholder="First Last" />
+            <input name="full_name" id="full_name" autocomplete="name" required  className={inputClasses} type="text" placeholder="First Last" />
           </div>
           <div className="flex flex-col ">
             <label htmlFor="email">Email</label>
-            <input  id="email" name="email" type="email" autocomplete="email" className={inputClasses} placeholder="email@example.com" />
+            <input  id="email" name="email" type="email" required autocomplete="email" className={inputClasses} placeholder="email@example.com" />
           </div>
           <div className="flex flex-col">
             <label htmlFor="phone">Phone</label>
@@ -57,19 +60,13 @@ export default function Contact({
           </div>
           <div className="flex flex-col">
             <label htmlFor="message">Message</label>
-            <textarea rows="4" className={inputClasses} type="text" name="message" placeholder="I just wanted to say..." />
+            <textarea rows="4" className={inputClasses} type="text" required name="message" placeholder="I just wanted to say..." />
           </div>
           <div className="flex flex-col">
             <button type="submit" onClick={() => setSubmitted(true)}>
               <PrettyLink linkTo="#" className="hover:text-secondary-400">Send enquiry</PrettyLink>
             </button>
           </div>
-        </> : 
-        
-        <div className="flex h-full items-center px-4">
-          <h3>Thank you for getting in touch, I will respond shortly.</h3>
-        </div>
-        }
 
 
       </form>

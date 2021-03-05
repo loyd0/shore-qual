@@ -13,7 +13,7 @@ export default function Contact({
 }) {
 
   const activeWindow = typeof window !== "undefined" ? window : {}
-  const [submitted, setSubmitted] = React.useState(activeWindow.location.search === "?submitted")
+  const [submitted, setSubmitted] = React.useState(activeWindow.location?.search === "?submitted")
   const { contentfulContactPage: { title, content, links } } = data
   const inputClasses = "bg-primary bg-opacity-40 rounded border-none placeholder-blue-100"
 

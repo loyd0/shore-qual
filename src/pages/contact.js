@@ -6,16 +6,19 @@ import SocialLink from '../components/contentful-elements/SocialLink';
 import PrettyLink from '../components/elements/PrettyLink';
 import { graphql } from 'gatsby';
 import CurvedFeet from "../animations/CurvedFeet";
+import DownArrow from '../images/svgs/down-arrow';
 
 export default function Contact({
   data
 }) {
 
-
-  const [submitted, setSubmitted] = React.useState(false)
+  const activeWindow = typeof window !== "undefined" ? window : {}
+  const [submitted, setSubmitted] = React.useState(activeWindow.location.search === "?submitted")
   const { contentfulContactPage: { title, content, links } } = data
   const inputClasses = "bg-primary bg-opacity-40 rounded border-none placeholder-blue-100"
 
+
+  console.log(submitted)
   return <Layout
     className="relative"
   >
@@ -37,15 +40,12 @@ export default function Contact({
 
 
 
-      <form className="bg-white rounded p-6 space-y-4 placeholder-primary" data-netlify="true" name="contact" method="POST"  >
+      <form className="bg-white rounded p-6 space-y-4 placeholder-primary" data-netlify="true" name="contact" method="POST" action="?submitted"  >
         <input type="hidden" name="form-name" value="contact" />
-        <p class="hidden">
+        <p className="hidden">
           <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
         </p>
-        {submitted &&    
-   <div className="flex items-center">
-          <h3>Thank you for getting in touch, I will respond shortly.</h3>
-        </div> }
+        {!submitted ?   <>
           <div className="flex flex-col placeholder-primary">
             <label htmlFor="full_name">Name</label>
             <input name="full_name" id="full_name" autocomplete="name" required  className={inputClasses} type="text" placeholder="First Last" />
@@ -63,12 +63,15 @@ export default function Contact({
             <textarea rows="4" className={inputClasses} type="text" required name="message" placeholder="I just wanted to say..." />
           </div>
           <div className="flex flex-col">
-            <button type="submit" onClick={() => setSubmitted(true)}>
-              <PrettyLink linkTo="#" className="hover:text-secondary-400">Send enquiry</PrettyLink>
+            <button className="hover:text-secondary-400 flex items-center" type="submit" >
+              Send enquiry <span className="ml-4 transform -rotate-90"><DownArrow className="animate-bounce"/></span> 
             </button>
           </div>
-
-
+          </>
+          : <div className="flex h-full items-center">
+            <h3>Thank you for getting in touch, I will respond shortly.</h3>
+          </div>
+        }
       </form>
     </section>
 

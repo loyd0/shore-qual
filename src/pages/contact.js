@@ -40,7 +40,7 @@ export default function Contact({
 
 
 
-      <form className="bg-white rounded p-6 space-y-4 placeholder-primary" data-netlify="true" name="contact" method="POST" action="?submitted"  >
+      <form className="bg-white rounded p-6 space-y-4 placeholder-primary" data-netlify="true" name="contact" method="POST" action="/contact?submitted"  >
         <input type="hidden" name="form-name" value="contact" />
         <p className="hidden">
           <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>

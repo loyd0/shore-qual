@@ -18,8 +18,6 @@ export default function Blog({ data, pageContext }) {
     ...restBlogPage
   } = data.contentfulBlog
 
-  console.log(pageContext)
-
   const { posts } = data.allPaginatedBlogs
   const { tags, dates } = data.allBlogs
 
@@ -42,12 +40,10 @@ export default function Blog({ data, pageContext }) {
 
 
     {/* Pagination */}
+    <div className="text-center px-4 space-x-2 text-2xl text-primary">
+      {Array.from(Array(totalPages)).map((x, i) => <Link className={`${pageContext.currentPage - 1 === i && "font-bold text-secondary-600"}`} key={i} to={`/blog${i == 0 ? "" : `/${i + 1}`}`}>{i + 1}</Link>)}
+    </div>
 
-        <div className="text-center px-4 space-x-2 text-2xl text-primary">
-
-        { Array.from(Array(totalPages)).map((x,i) => <Link className={`${pageContext.currentPage-1 === i && "font-bold text-secondary-600"}`} key={i} to={`/blog${i == 0 ? "" : `/${i+1}`}`}>{i+1}</Link> )}
-        </div>
-     
     <CTASection />
   </Layout>
 }

@@ -9,38 +9,38 @@ export default function BlogPost({
 }) {
 
   const minutes = content?.fields?.readingTime?.minutes
-    return (
+  return (
 
-      <Linked linkTo={path} >
-        <article data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" className="relative h-64 text-white hover:shadow-2xl transition-shadow duration-500 cursor-pointer rounded overflow-hidden ">
-           <Image 
-            className="absolute z-0 top-0 w-full min-h-full rounded" 
-            image={coverImage}  
-            alt={coverImage.title}
-          />
+    <Linked linkTo={path} >
+      <article data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" className="relative h-64 text-white hover:shadow-2xl transition-shadow duration-500 cursor-pointer rounded overflow-hidden ">
+        <Image
+          className="absolute z-0 top-0 w-full min-h-full rounded"
+          image={coverImage}
+          alt={coverImage.title}
+        />
 
-          <div className="absolute top-0 w-full min-h-full rounded bg-black opacity-10 z-10" />
+        <div className="absolute top-0 w-full min-h-full rounded bg-black opacity-10 z-10" />
 
-           <div className="absolute z-20 top-0 w-full flex flex-col h-full justify-between text-left p-4 text-shadow-md">
+        <div className="absolute z-20 top-0 w-full flex flex-col h-full justify-between text-left p-4 text-shadow-md">
 
-            <div className="flex justify-between text-base font-bold ">
-              <span className="uppercase" >{published}</span>
-             {minutes && <span >{Math.floor(minutes)} mins</span> } 
-            </div>
+          <div className="flex justify-between text-base font-bold ">
+            <span className="uppercase" >{published}</span>
+            {minutes && <span >{Math.floor(minutes)} mins</span>}
+          </div>
 
-            <div>
+          <div>
             <ul className="flex space-x-4 w-full flex-wrap h-8 overflow-hidden">
-              { tags.map( tag => <li key={tag} className="flex items-center"><Tag className="mr-2"/>{tag}</li>)}
+              {tags.map(tag => <li key={tag} className="flex items-center"><Tag className="mr-2" />{tag}</li>)}
             </ul>
             <h4 className="text-xl lg:text-4xl truncate font-bold">{title}</h4>
             <p className="truncate">{description.text}</p>
-            </div>
-          
-           </div>
-          
-        </article>
-        </Linked>
-    )
+          </div>
+
+        </div>
+
+      </article>
+    </Linked>
+  )
 }
 
 export const BlogPostFragment = graphql`

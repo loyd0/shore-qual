@@ -39,12 +39,12 @@ const options = {
     [BLOCKS.HEADING_1]: (node, children) => <h2 className="font-bold">{children}</h2>,
     [BLOCKS.HEADING_2]: (node, children) => <h3 className="font-bold">{children}</h3>,
     [BLOCKS.HEADING_3]: (node, children) => <h4>{children}</h4>,
-    [BLOCKS.PARAGRAPH]: (node, children) => { 
+    [BLOCKS.PARAGRAPH]: (node, children) => {
 
-     return <p className="text-lg mb-8">{
+      return <p className="text-lg mb-8">{
         children.map(child => hasBreak(child) ? createBreakFromString(child) : child)
       }</p>
-     },
+    },
     [BLOCKS.QUOTE]: (node, children) => <Quote>{children}</Quote>,
     [BLOCKS.HR]: () => <Hr />,
     [BLOCKS.LIST_ITEM]: (node, children) => (
@@ -64,7 +64,7 @@ const options = {
       const photo = node.data.target.fields.photo || false
       const isInlinePhoto =
         node.data.target.sys.contentType.sys.contentful_id ===
-          "inlinePostPhoto" || false
+        "inlinePostPhoto" || false
       const isPost =
         node.data.target.sys.contentType.sys.contentful_id === "post" || false
       if (isInlinePhoto) {
@@ -85,7 +85,9 @@ const options = {
       return ""
     },
     [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-      if (!node.data.target || !node.data.target.fields.file) return ""
+      console.log(node.data.target)
+
+      if (!node.data.target || !node.data.target.fields?.file) return ""
       if (node.data.target.fields.file["en-US"].contentType.includes("image")) {
         const image = node.data.target.fields.file["en-US"]
         const alt = node.data.target.fields?.title?.["en-US"]

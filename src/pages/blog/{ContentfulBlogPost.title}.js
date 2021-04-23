@@ -16,11 +16,11 @@ import Linked from '../../components/elements/Linked';
 
 export default function BlogPostPage({ data }) {
 
-    const { title, 
+    const { title,
         // tags, 
         description, coverImage, published, content, author, similarPosts, fields } = data.contentfulBlogPost
     const { description: aboutSimon } = data.about
-    const { aboutShore  } = data.shore
+    const { aboutShore } = data.shore
 
 
     const validWindow = typeof window !== "undefined" ? window : {}
@@ -28,10 +28,9 @@ export default function BlogPostPage({ data }) {
 
     const similarPostsArray = isArray(similarPosts) ? similarPosts : [similarPosts]
 
-
     return (
         <Layout background={coverImage}>
-            <SEO title={title} description={description.text} />
+            <SEO title={title} description={description.text} image={coverImage?.file?.url} />
             <Image image={coverImage} alt={coverImage.title} className="-mt-20  h-screen" />
 
             <div className="px-2 md:px-4 lg:px-0 bg-white max-w-5xl lg:mx-auto mx-2" >
@@ -88,7 +87,7 @@ export default function BlogPostPage({ data }) {
 
                     <div>
                         <h4 className="font-bold text-secondary-400 text-4xl mb-4">Similar Posts</h4>
-                        { similarPosts && similarPostsArray.map(post => <BlogPost key={post.id} {...post} />)}
+                        {similarPosts && similarPostsArray.map(post => <BlogPost key={post.id} {...post} />)}
                     </div>
                 </section>
 

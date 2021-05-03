@@ -43,9 +43,9 @@ export default function BlogPostPage({ data }) {
                     <div className="flex justify-between mb-6">
                         <h4 className="text-secondary-400 text-xl">{author}</h4>
 
-                        <ul className="flex w-3/4 ml-auto space-x-2 self-end justify-end">
+                        <ul className="flex flex-wrap w-4/5 ml-auto justify-end">
                             {fields?.sorting.sluggedTags && fields?.sorting.sluggedTags.map((tag, index) => <Linked linkTo={`/blog/tags/${tag}`}>
-                                <li key={tag + index} className="flex items-center bg-primary text-primary bg-opacity-20 px-3"><Tag className="mr-1" />{tag}</li>
+                                <li key={tag + index} className="my-1 mr-1 flex leading-none py-1 items-center bg-primary text-primary bg-opacity-20 px-3"><Tag className="mr-1" />{tag}</li>
                             </Linked>)}
                         </ul>
                     </div>

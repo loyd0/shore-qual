@@ -19,7 +19,7 @@ export default function BlogPost({
           alt={coverImage.title}
         />
 
-        <div className="absolute top-0 w-full min-h-full rounded bg-black opacity-10 z-10" />
+        <div className="absolute top-0 w-full min-h-full rounded bg-black opacity-25 z-10" />
 
         <div className="absolute z-20 top-0 w-full flex flex-col h-full justify-between text-left p-4 text-shadow-md">
 

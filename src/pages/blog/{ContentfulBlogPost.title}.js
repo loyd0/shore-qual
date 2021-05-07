@@ -33,6 +33,7 @@ export default function BlogPostPage({ data }) {
                 path={path} 
                 title={title} 
                 article={true}
+                twitterUsername={"@ShoreQual"}
                 description={description.text} 
                 image={socialCoverImage?.fixed?.src} />
             <Image image={coverImage} alt={coverImage.title} className="-mt-20  h-screen" />

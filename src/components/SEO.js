@@ -21,7 +21,7 @@ function SEO({ description, lang, meta, path, title, image, article, twitterUser
 
   const metaDescription = description || site.siteMetadata.description
   // trying to force a cache refresh
-  const metaImage = `${image ? `${image}?time=${Date.now()}` : `${site.siteMetadata.siteUrl}/public/shore-meta.jpg`}` // placeholder logo here
+  const metaImage = `${image ? `https:${image}` : `${site.siteMetadata.siteUrl}/public/shore-meta.jpg`}` // placeholder logo here
   const metaTitle = title ? `${title}` : site.siteMetadata.title
 
   return (

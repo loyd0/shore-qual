@@ -20,7 +20,7 @@ function SEO({ description, lang, meta, path, title, image, article, twitterUser
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const metaImage = `${image ? `${site.siteMetadata.siteUrl}${image}` : `${site.siteMetadata.siteUrl}/public/shore-meta.jpg`}` // placeholder logo here
+  const metaImage = `${image ? `${image}` : `${site.siteMetadata.siteUrl}/public/shore-meta.jpg`}` // placeholder logo here
   const metaTitle = title ? `${title}` : site.siteMetadata.title
 
   return (

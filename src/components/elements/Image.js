@@ -36,6 +36,15 @@ fragment CoverImageFragment on ContentfulAsset {
     }
     title
 }
+fragment CoverImageFragment on ContentfulAsset {
+  fluid (maxWidth:350, quality:90) {
+      ...GatsbyContentfulFluid
+    }
+    file {
+      url
+    }
+    title
+}
 fragment MiniImageFragment on ContentfulAsset {
   fluid(maxWidth: 200) {
       ...GatsbyContentfulFluid_withWebp

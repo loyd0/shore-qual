@@ -18,7 +18,7 @@ export default function BlogPostPage({ data }) {
 
     const { title,
         // tags, 
-        description, coverImage, published, content, author, similarPosts, fields, path } = data.contentfulBlogPost
+        description, coverImage, published, content, author, similarPosts, fields, path, socialCoverImage } = data.contentfulBlogPost
     const { description: aboutSimon } = data.about
     const { aboutShore } = data.shore
 
@@ -35,7 +35,7 @@ export default function BlogPostPage({ data }) {
                 title={title} 
                 article={true}
                 description={description.text} 
-                image={coverImage?.file?.url} />
+                image={socialCoverImage?.file?.url} />
             <Image image={coverImage} alt={coverImage.title} className="-mt-20  h-screen" />
 
             <div className="px-2 md:px-4 lg:px-0 bg-white max-w-5xl lg:mx-auto mx-2" >

@@ -93,6 +93,9 @@ fragment FullBlogPostFragment on ContentfulBlogPost {
   coverImage {
     ...CoverImageFragment
   }
+  socialCoverImage: coverImage {
+    ...SocialCoverImageFragment
+  }
   similarPosts {
     ...BlogPostFragment
   }

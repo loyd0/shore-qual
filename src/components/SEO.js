@@ -54,7 +54,7 @@ function SEO({ description, lang, meta, path, title, image, article, twitterUser
       />
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
-      {/* <meta name="twitter:image" content={metaImage} /> */}
+      <meta name="twitter:image" content={metaImage} />
 
       {twitterUsername && (
         <meta name="twitter:creator" content={twitterUsername} />

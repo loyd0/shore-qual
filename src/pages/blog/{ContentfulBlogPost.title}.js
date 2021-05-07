@@ -22,7 +22,6 @@ export default function BlogPostPage({ data }) {
     const { description: aboutSimon } = data.about
     const { aboutShore } = data.shore
 
-
     const validWindow = typeof window !== "undefined" ? window : {}
 
 
@@ -35,7 +34,7 @@ export default function BlogPostPage({ data }) {
                 title={title} 
                 article={true}
                 description={description.text} 
-                image={socialCoverImage?.file?.url} />
+                image={socialCoverImage?.fixed?.src} />
             <Image image={coverImage} alt={coverImage.title} className="-mt-20  h-screen" />
 
             <div className="px-2 md:px-4 lg:px-0 bg-white max-w-5xl lg:mx-auto mx-2" >

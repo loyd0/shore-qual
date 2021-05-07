@@ -36,9 +36,9 @@ fragment CoverImageFragment on ContentfulAsset {
     }
     title
 }
-fragment CoverImageFragment on ContentfulAsset {
-  fluid (maxWidth:350, quality:90) {
-      ...GatsbyContentfulFluid
+fragment SocialCoverImageFragment on ContentfulAsset {
+  fixed (width:350, quality:90) {
+      src
     }
     file {
       url

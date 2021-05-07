@@ -91,7 +91,7 @@ fragment FullBlogPostFragment on ContentfulBlogPost {
   
   author
   coverImage {
-    ...ImageFragment
+    ...CoverImageFragment
   }
   similarPosts {
     ...BlogPostFragment

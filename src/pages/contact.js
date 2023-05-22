@@ -17,8 +17,6 @@ export default function Contact({
   const { contentfulContactPage: { title, content, links } } = data
   const inputClasses = "bg-primary bg-opacity-40 rounded border-none placeholder-blue-100"
 
-
-  console.log(submitted)
   return <Layout
     className="relative"
   >

@@ -68,7 +68,7 @@ export default function BlogTemplate({ data, pageContext }) {
 
 
 export const BlogTemplateQuery = graphql`
-query BlogTemplateQuery($year: Date, $tag: [String]) {
+query BlogTemplateQuery($year: Date, $tag: String) {
     contentfulBlog {
         id
         preHeader
@@ -85,7 +85,7 @@ query BlogTemplateQuery($year: Date, $tag: [String]) {
         ...FullBlogPostFragment
     }
   }
-  byTag: allContentfulBlogPost(filter: {fields: {sorting: {sluggedTags: {in: $tag}}}}) {
+  byTag: allContentfulBlogPost(filter: {fields: {sorting: {sluggedTags: {in: [$tag]}}}}) {
     posts: nodes {
         ...FullBlogPostFragment
     }

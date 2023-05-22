@@ -85,8 +85,6 @@ const options = {
       return ""
     },
     [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-      console.log(node.data.target)
-
       if (!node.data.target || !node.data.target.fields?.file) return ""
       if (node.data.target.fields.file["en-US"].contentType.includes("image")) {
         const image = node.data.target.fields.file["en-US"]

@@ -12,9 +12,7 @@ const Footer = (props) => {
     allContentfulCaseStudy,
   } = useStaticQuery(graphql`
     query FooterQuery {
-      contentfulSiteSettings(
-        id: { eq: "779e0936-ba5b-557c-89f1-f0aece47a0d2" }
-      ) {
+      contentfulSiteSettings(contentful_id: {eq: "4zQ8SQMMaFCsX4P5tb14vS"}) { 
         footerText
         footerSocialLinks {
           link
@@ -59,7 +57,7 @@ const Footer = (props) => {
             <h3 className=" mt-6 mb-3 text-xl">SIMON RILEY</h3>
             {footerSocialLinks.map(({ link, linkText, icon }, index) => {
               return (
-                <Link 
+                <Link
                   key={link + index}
                   className="flex mt-2 text-primary"
                   linkTo={link}

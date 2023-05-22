@@ -8,8 +8,6 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { slugify } from '../../utils/General';
 
 export default function ServiceBlock({ title, linkText, services, backgroundImage }) {
-
-  console.log(services)
   return (
     <CoverImage image={backgroundImage} alt={backgroundImage.title} >
       <BaseSectionBlock bgImage={true} className="z-front relative text-white bg-none overflow-hidden  ">

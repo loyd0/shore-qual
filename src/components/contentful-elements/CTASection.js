@@ -9,7 +9,7 @@ export default function CTASection({ data }) {
 
     const {contentfulSiteSettings } = useStaticQuery(graphql`
     query CTASectionQuery {
-      contentfulSiteSettings {
+      contentfulSiteSettings(contentful_id: {eq: "4zQ8SQMMaFCsX4P5tb14vS"}) {
           callToActionSection {
             id
             icon {

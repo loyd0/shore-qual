@@ -4,21 +4,20 @@ import Img from "gatsby-image"
 
 export default function Logo(props) {
   const { contentfulSiteSettings } = useStaticQuery(graphql`
-    query LogoQuery {
-      contentfulSiteSettings(
-        id: { eq: "779e0936-ba5b-557c-89f1-f0aece47a0d2" }
-      ) {
-        siteLogo {
-          fluid {
-            ...GatsbyContentfulFluid_withWebp
-          }
-          file {
-            url
-          }
-          title
-        }
+query LogoQuery {
+  contentfulSiteSettings(contentful_id: {eq: "4zQ8SQMMaFCsX4P5tb14vS"}) {
+    siteLogo {
+      fluid {
+				...GatsbyContentfulFluid
       }
+      file {
+        url
+      }
+      title
     }
+    contentful_id
+  }
+}
   `)
 
   const { siteLogo } = contentfulSiteSettings

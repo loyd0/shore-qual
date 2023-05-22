@@ -20,7 +20,7 @@ export default function BlogPostPage({ data }) {
         // tags, 
         description, coverImage, published, content, author, similarPosts, fields, path, socialCoverImage } = data.contentfulBlogPost
     const { description: aboutSimon } = data.about
-    const { aboutShore } = data.shore
+    const { aboutShore } = data?.shore || {}
 
     const validWindow = typeof window !== "undefined" ? window : {}
 
@@ -29,12 +29,12 @@ export default function BlogPostPage({ data }) {
 
     return (
         <Layout background={coverImage}>
-            <SEO 
-                path={path} 
-                title={title} 
+            <SEO
+                path={path}
+                title={title}
                 article={true}
                 twitterUsername={"@ShoreQual"}
-                description={description.text} 
+                description={description.text}
                 image={socialCoverImage?.fixed?.src} />
             <Image image={coverImage} alt={coverImage.title} className="-mt-20  h-screen" />
 
@@ -112,7 +112,7 @@ export const BlogPostQuery = graphql`
     about: contentfulAboutBlock {
         ...AboutBlockFragment
     }
-    shore: contentfulSiteSettings(id: { eq: "779e0936-ba5b-557c-89f1-f0aece47a0d2" }) {
+    shore: contentfulSiteSettings(contentful_id: {eq: "4zQ8SQMMaFCsX4P5tb14vS"}) {
         aboutShore {
             text: aboutShore
         }

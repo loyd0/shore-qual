@@ -13,7 +13,7 @@ exports.onCreateNode = ({ node, actions }) => {
             name: `sorting`,
             value: {
                 year: node.published.slice(0,4),
-                sluggedTags: node.tags.map(tag => slugify(tag))
+                sluggedTags: node?.tags?.map(tag => slugify(tag))
             }
         })
     }
